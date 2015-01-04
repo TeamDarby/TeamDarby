@@ -4,20 +4,20 @@ using System.Linq;
 using System.Text;
 using System.IO;
 
-namespace BalloonsPops
+namespace BalloonPops
 {
     class TopScore
     {
         public const int MAX_TOP_SCORE_COUNT = 5;
-        List<Person> topScoreList = new List<Person>();
+        List<Player> topScoreList = new List<Player>();
 
-        public bool IsTopScore(Person person)
+        public bool IsTopScore(int score)
         {
             if (topScoreList.Count >= MAX_TOP_SCORE_COUNT)
             {
-                PersonScoreComparer comparer = new PersonScoreComparer();
-                topScoreList.Sort(comparer);
-                if (topScoreList[MAX_TOP_SCORE_COUNT - 1] > person)
+               //ersonScoreComparer comparer = new PersonScoreComparer();
+                topScoreList.Sort();
+                if (topScoreList[MAX_TOP_SCORE_COUNT - 1].Score > score)
                 {
                     return true;
                 }
@@ -29,11 +29,11 @@ namespace BalloonsPops
             return true;
         }
 
-        public void AddToTopScoreList(Person person)
+        public void AddToTopScoreList(Player person)
         {
             topScoreList.Add(person);
-            PersonScoreComparer comparer = new PersonScoreComparer();
-            topScoreList.Sort(comparer);
+            //PersonScoreComparer comparer = new PersonScoreComparer();
+            topScoreList.Sort();
             while (topScoreList.Count > 5)
             {
                 topScoreList.RemoveAt(5);
@@ -52,9 +52,9 @@ namespace BalloonsPops
                     int substringsCount = substrings.Count<string>();
                     if (substringsCount > 0)
                     {
-                        Person player = new Person();
-                        player.Name = substrings[1];
-                        player.Score = int.Parse(substrings[substringsCount - 2]);
+                        string name = substrings[1];
+                        int score = int.Parse(substrings[substringsCount - 2]);
+                        Player player = new Player(name, score);
                         topScoreList.Add(player);
                     }
                     line = TopScoreStreamReader.ReadLine();

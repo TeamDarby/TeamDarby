@@ -3,42 +3,42 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace BalloonsPops
+namespace BalloonPops
 {
     class Command
     {
 
-        string c;
+        string name;
 
-        public string Value
+        public string Name
         {
             get
             {
-                return this.c;
+                return this.name;
             }
-            set
+            private set
             {
-                this.c = value;
+                this.name = value;
             }
         }
 
-        public static bool TryParse(string input, ref Command result)
+        public static bool TryParse(string input, ref Command command)
         {
             if (input == "top")
             {
-                result.Value = input;
+                command.Name = input;
                 return true;
             }
 
             if (input == "restart")
             {
-                result.Value = input;
+                command.Name = input;
                 return true;
             }
 
             if (input == "exit")
             {
-                result.Value = input;
+                command.Name = input;
                 return true;
             }
 

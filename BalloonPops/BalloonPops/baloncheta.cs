@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace BalloonsPops
+namespace BalloonPops
 {
 	// veche pisha na c#, uraaaaaaaaaaaaaaa, mnogo e yako tova be!
     class baloncheta
@@ -31,7 +31,7 @@ namespace BalloonsPops
                     }
                     else
                     {
-                        switch (command.Value)
+                        switch (command.Name)
                         {
                             case "top":
                                 {
@@ -57,13 +57,13 @@ namespace BalloonsPops
                 }
             }
 
-            Person player = new Person();
-            player.Score = gb.ShootCounter;
+            int score = gb.ShootCounter;
 
-            if (ts.IsTopScore(player))
+            if (ts.IsTopScore(score))
             {
                 Console.WriteLine("Please enter your name for the top scoreboard: ");
-                player.Name = Console.ReadLine();
+                string name = Console.ReadLine();
+                Player player = new Player(name, score);
                 ts.AddToTopScoreList(player);
             }
             ts.SaveTopScoreList();

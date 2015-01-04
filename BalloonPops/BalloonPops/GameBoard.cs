@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace BalloonsPops
+namespace BalloonPops
 {
     class GameBoard
     {
@@ -132,7 +132,7 @@ namespace BalloonsPops
                 for (int j = 0; j < 25; j++)
                 {
 
-
+                    // Possible bottleneck!!!
                     Console.Write(gb[j, i]);
                 }
                 Console.WriteLine();
