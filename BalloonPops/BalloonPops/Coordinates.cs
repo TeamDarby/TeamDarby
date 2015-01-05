@@ -14,11 +14,19 @@
         {
             get
             {
-                return x;
+                return this.x;
             }
+
             set
             {
-                if (value >= 0 && value <= 9) x = value;
+                if (value >= 0 && value <= 9)
+                {
+                    this.x = value;
+                }
+                else
+                {
+                    throw new ArgumentOutOfRangeException("X", "Wrong X coordinate value");
+                }
             }
         }
 
@@ -26,11 +34,19 @@
         {
             get
             {
-                return y;
+                return this.y;
             }
+
             set
             {
-                if (value >= 0 && value <= 4) y = value;
+                if (value >= 0 && value <= 4)
+                {
+                    this.y = value;
+                }
+                else
+                {
+                    throw new ArgumentOutOfRangeException("Y", "Wrong Y coordinate value");
+                }
             }
         }
 
@@ -56,7 +72,7 @@
                 }
                 else
                 {
-                    Console.WriteLine("Wrong x coordinates");
+                    Console.WriteLine("Wrong X coordinate!");
                     return false;
                 }
             }

@@ -11,8 +11,14 @@ namespace BalloonPops
     /// </summary>
     public interface IPlayer
     {
+        /// <summary>
+        /// Represent player name
+        /// </summary>
         string Name { get; }
 
+        /// <summary>
+        /// Represent player score
+        /// </summary>
         int Score { get; }
     }
 }

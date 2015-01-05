@@ -41,7 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="baloncheta.cs" />
+    <Compile Include="BalloonPops.cs" />
+    <Compile Include="BalloonPopsGame.cs" />
     <Compile Include="Command.cs" />
     <Compile Include="Coordinates.cs" />
     <Compile Include="GameBoard.cs" />

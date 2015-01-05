@@ -10,6 +10,7 @@ namespace BalloonPops
         char[,] gb = new char[25, 8];
         int count = 0;
         int broya4 = 50;
+
         public int ShootCounter
         {
             get
@@ -19,6 +20,7 @@ namespace BalloonPops
 
             }
         }
+
         public int RemainingBaloons
         {
             get
@@ -26,6 +28,7 @@ namespace BalloonPops
                 return broya4;
             }
         }
+
         public void GenerateNewGame()
         {
             Console.WriteLine("Welcome to “Balloons Pops” game. Please try to pop the balloons. Use 'top' to view the top scoreboard, 'restart' to start a new game and 'exit' to quit the game.");

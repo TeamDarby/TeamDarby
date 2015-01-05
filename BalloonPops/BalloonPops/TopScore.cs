@@ -9,7 +9,7 @@ namespace BalloonPops
     class TopScore
     {
         public const int MAX_TOP_SCORE_COUNT = 5;
-        List<Player> topScoreList = new List<Player>();
+        List<IPlayer> topScoreList = new List<IPlayer>();
 
         public bool IsTopScore(int score)
         {
@@ -29,7 +29,7 @@ namespace BalloonPops
             return true;
         }
 
-        public void AddToTopScoreList(Player person)
+        public void AddToTopScoreList(IPlayer person)
         {
             topScoreList.Add(person);
             //PersonScoreComparer comparer = new PersonScoreComparer();
@@ -54,7 +54,7 @@ namespace BalloonPops
                     {
                         string name = substrings[1];
                         int score = int.Parse(substrings[substringsCount - 2]);
-                        Player player = new Player(name, score);
+                        IPlayer player = new Player(name, score);
                         topScoreList.Add(player);
                     }
                     line = TopScoreStreamReader.ReadLine();

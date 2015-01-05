@@ -1,15 +1,30 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
+﻿//-----------------------------------------------------------------------
+// <copyright file="BalloonPops.cs" company="SoftUni">
+//  Copyright (c) 2015 SoftUni. All rights reserved.
+// </copyright>
+// <author>Team "Darby"</author>
+//-----------------------------------------------------------------------
 namespace BalloonPops
 {
-	// veche pisha na c#, uraaaaaaaaaaaaaaa, mnogo e yako tova be!
-    class baloncheta
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+
+    /// <summary>
+    /// Includes engine for the game Balloon Pops
+    /// </summary>
+    public class BalloonPops
     {
-        static void Main(string[] args)
+        #region constants
+        const string TOP = "top";
+        const string RESTART = "restart";
+        const string EXIT = "exit";
+        #endregion
+
+        public void Play()
         {
+
             GameBoard gb = new GameBoard();
             gb.GenerateNewGame();
             gb.PrintGameBoard();
@@ -33,18 +48,18 @@ namespace BalloonPops
                     {
                         switch (command.Name)
                         {
-                            case "top":
+                            case TOP:
                                 {
                                     ts.PrintScoreList();
                                 }
                                 break;
-                            case "restart":
+                            case RESTART:
                                 {
                                     gb.GenerateNewGame();
                                     gb.PrintGameBoard();
                                 }
                                 break;
-                            case "exit":
+                            case EXIT:
                                 {
                                     return;
                                 }
@@ -63,7 +78,7 @@ namespace BalloonPops
             {
                 Console.WriteLine("Please enter your name for the top scoreboard: ");
                 string name = Console.ReadLine();
-                Player player = new Player(name, score);
+                IPlayer player = new Player(name, score);
                 ts.AddToTopScoreList(player);
             }
             ts.SaveTopScoreList();
