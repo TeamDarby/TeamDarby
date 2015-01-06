@@ -17,7 +17,7 @@
                 return this.x;
             }
 
-            set
+            private set
             {
                 if (value >= 0 && value <= 9)
                 {
@@ -25,7 +25,7 @@
                 }
                 else
                 {
-                    //throw new ArgumentOutOfRangeException("X", "Wrong X coordinate value");
+                    throw new ArgumentOutOfRangeException("X", "Wrong X coordinate value");
                 }
             }
         }
@@ -37,7 +37,7 @@
                 return this.y;
             }
 
-            set
+            private set
             {
                 if (value >= 0 && value <= 4)
                 {
@@ -45,7 +45,7 @@
                 }
                 else
                 {
-                    //throw new ArgumentOutOfRangeException("Y", "Wrong Y coordinate value");
+                    throw new ArgumentOutOfRangeException("Wrong Y coordinate value");
                 }
             }
         }
@@ -92,7 +92,7 @@
                 }
                 else
                 {
-                    Console.WriteLine("Wrong y coordinates");
+                    Console.WriteLine("Wrong Y coordinates");
                     return false;
                 }
             }

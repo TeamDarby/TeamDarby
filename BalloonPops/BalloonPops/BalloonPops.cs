@@ -25,24 +25,25 @@ namespace BalloonPops
         public void Play()
         {
 
-            GameBoard gb = new GameBoard();
-            gb.GenerateNewGame();
-            gb.PrintGameBoard();
-            ScoreManager ts = new ScoreManager();
+            GameBoard gameBoard = new GameBoard();
+            gameBoard.GenerateNewGame();
+            gameBoard.PrintGameBoard();
+            ScoreManager topScore = new ScoreManager();
 
-            ts.LoadTopScore();
+            topScore.LoadTopScore();
             
             bool isCoordinates;
             Coordinates coordinates = new Coordinates();
             Command command = new Command();
-            while (gb.RemainingBaloons > 0)
+
+            while (gameBoard.RemainingBaloons > 0)
             {
-                if (gb.ReadInput(out isCoordinates, ref coordinates, ref command))
+                if (gameBoard.ReadInput(out isCoordinates, ref coordinates, ref command))
                 {
                     if (isCoordinates)
                     {
-                        gb.Shoot(coordinates);
-                        gb.PrintGameBoard();
+                        gameBoard.Shoot(coordinates);
+                        gameBoard.PrintGameBoard();
                     }
                     else
                     {
@@ -50,13 +51,13 @@ namespace BalloonPops
                         {
                             case TOP:
                                 {
-                                    ts.PrintScoreList();
+                                    topScore.PrintScoreList();
                                 }
                                 break;
                             case RESTART:
                                 {
-                                    gb.GenerateNewGame();
-                                    gb.PrintGameBoard();
+                                    gameBoard.GenerateNewGame();
+                                    gameBoard.PrintGameBoard();
                                 }
                                 break;
                             case EXIT:
@@ -72,16 +73,21 @@ namespace BalloonPops
                 }
             }
 
-            int score = gb.ShootCounter;
+            int score = gameBoard.ShootCounter;
 
-            if (ts.IsTopScore(score))
+            /*
+             * If the player has the best score, his result is saved as top in the list
+             * */
+            if (topScore.IsTopScore(score))
             {
+                Console.WriteLine("Congratulations, you have popped more ballons"
+                    + " then the other players!");
                 Console.WriteLine("Please enter your name for the top scoreboard: ");
                 string name = Console.ReadLine();
                 IPlayer player = new Player(name, score);
-                ts.AddToTopScoreList(player);
+                topScore.AddToTopScoreList(player);
             }
-            ts.SaveTopScoreList();
+            topScore.SaveTopScoreList();
         }
     }
 }
