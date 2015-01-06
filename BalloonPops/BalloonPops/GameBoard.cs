@@ -7,21 +7,21 @@
 
     class GameBoard
     {
-       private char[,] board = new char[25, 8];
-       private int count = 0;
-       private int counter = 50;
+        char[,] gameBoard = new char[25, 8];
+        int numOfShoots = 0;
+        int remainingShoots = 50;
 
         public int ShootCounter
         {
             get
             {
-                return count;
+                return numOfShoots;
 
             }
 
             private set
             {
-                this.count = value;
+                this.numOfShoots = value;
             }
         }
 
@@ -29,12 +29,12 @@
         {
             get
             {
-                return counter;
+                return remainingShoots;
             }
 
             private set
             {
-                this.counter = value;
+                this.remainingShoots = value;
             }
         }
 
@@ -44,21 +44,21 @@
         public void GenerateNewGame()
         {
             Console.WriteLine("Welcome to “Balloons Pops” game. Please try to pop the balloons. Use 'top' to view the top scoreboard, 'restart' to start a new game and 'exit' to quit the game.");
-            counter = 50;
+            remainingShoots = 50;
             FillBlankGameBoard();
 
             Random random = new Random();
-            Coordinates coordinate = new Coordinates();
+            Coordinates coords = new Coordinates();
 
             for (int i = 0; i < 10; i++)
             {
                 for (int j = 0; j < 5; j++)
                 {
-                    coordinate.X = i;
-                    coordinate.Y = j;
+                    coords.X = i;
+                    coords.Y = j;
 
 
-                    AddNewBaloonToGameBoard(coordinate, (char)(random.Next(1, 5) + (int)'0'));
+                    AddNewBaloonToGameBoard(coords, (char)(random.Next(1, 5) + (int)'0'));
                 }
             }
         }
@@ -73,7 +73,7 @@
             int xPosition, yPosition;
             xPosition = 4 + coordinate.X * 2;
             yPosition = 2 + coordinate.Y;
-            board[xPosition, yPosition] = value;
+            gameBoard[xPosition, yPosition] = value;
         }
 
         /// <summary>
@@ -89,7 +89,7 @@
 
 
             yPosition = 2 + coordinate.Y;
-            return board[xPosition, yPosition];
+            return gameBoard[xPosition, yPosition];
         }
 
         /// <summary>
@@ -103,58 +103,58 @@
                 for (int j = 0; j < 25; j++)
                 {
 
-                    board[j, i] = ' ';
+                    gameBoard[j, i] = ' ';
                 }
             }
 
             //printing firs row
             for (int i = 0; i < 4; i++)
             {
-                board[i, 0] = ' ';
+                gameBoard[i, 0] = ' ';
             }
 
-            char counter = '0';
+            char numOfShootser = '0';
 
 
             for (int i = 4; i < 25; i++)
             {
-                if ((i % 2 == 0) && counter <= '9') board[i, 0] = (char)counter++;
-                else board[i, 0] = ' ';
+                if ((i % 2 == 0) && numOfShootser <= '9') gameBoard[i, 0] = (char)numOfShootser++;
+                else gameBoard[i, 0] = ' ';
             }
 
             //printing second row
             for (int i = 3; i < 24; i++)
             {
-                board[i, 1] = '-';
+                gameBoard[i, 1] = '-';
             }
 
 
             //printing left game board wall
-            counter = '0';
+            numOfShootser = '0';
 
             for (int i = 2; i < 8; i++)
             {
-                if (counter <= '4')
+                if (numOfShootser <= '4')
                 {
-                    board[0, i] = counter++;
-                    board[1, i] = ' ';
+                    gameBoard[0, i] = numOfShootser++;
+                    gameBoard[1, i] = ' ';
 
 
-                    board[2, i] = '|';
-                    board[3, i] = ' ';
+                    gameBoard[2, i] = '|';
+                    gameBoard[3, i] = ' ';
                 }
             }
 
             //printing down game board wall
             for (int i = 3; i < 24; i++)
             {
-                board[i, 7] = '-';
+                gameBoard[i, 7] = '-';
             }
 
             //printing right game board wall
             for (int i = 2; i < 7; i++)
             {
-                board[24, i] = '|';
+                gameBoard[24, i] = '|';
             }
         }
 
@@ -169,7 +169,7 @@
                 {
 
                     // Possible bottleneck!!!
-                    Console.Write(board[j, i]);
+                    Console.Write(gameBoard[j, i]);
                 }
                 Console.WriteLine();
             }
@@ -195,14 +195,14 @@
 
 
             AddNewBaloonToGameBoard(coordinate, '.');
-            counter--;
+            remainingShoots--;
 
             tempCoordinates.X = coordinate.X - 1;
             tempCoordinates.Y = coordinate.Y;
             while (currentBaloon == get(tempCoordinates))
             {
                 AddNewBaloonToGameBoard(tempCoordinates, '.');
-                counter--;
+                remainingShoots--;
                 tempCoordinates.X--;
             }
 
@@ -210,18 +210,18 @@
             while (currentBaloon == get(tempCoordinates))
             {
                 AddNewBaloonToGameBoard(tempCoordinates, '.');
-                counter--;
+                remainingShoots--;
                 tempCoordinates.X++;
             }
 
-            tempCoordinates.X = ccoordinate.X;
+            tempCoordinates.X = coordinate.X;
             tempCoordinates.Y = coordinate.Y - 1;
             while (currentBaloon == get(tempCoordinates))
             {
 
 
                 AddNewBaloonToGameBoard(tempCoordinates, '.');
-                counter--;
+                remainingShoots--;
                 tempCoordinates.Y--;
             }
 
@@ -230,11 +230,11 @@
             while (currentBaloon == get(tempCoordinates))
             {
                 AddNewBaloonToGameBoard(tempCoordinates, '.');
-                counter--;
+                remainingShoots--;
                 tempCoordinates.Y++;
             }
 
-            count++;
+            numOfShoots++;
             LandFlyingBaloons();
         }
 
@@ -254,8 +254,8 @@
             {
                 for (int j = 0; j <= 4; j++)
                 {
-                    coordinate.X = i;
-                    coordinate.Y = j;
+                    coords.X = i;
+                    coords.Y = j;
                     if (get(coordinate) == '.')
                     {
                         for (int k = j; k > 0; k--)

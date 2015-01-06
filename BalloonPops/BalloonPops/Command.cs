@@ -41,19 +41,7 @@
         /// <returns>Returns true if there is selected command. Returns false if there are no selected commands</returns>
         public static bool TryParse(string input, ref Command command)
         {
-            if (input == "top")
-            {
-                command.Name = input;
-                return true;
-            }
-
-            if (input == "restart")
-            {
-                command.Name = input;
-                return true;
-            }
-
-            if (input == "exit")
+            if (input == "top" || input == "restart" || input == "exit")
             {
                 command.Name = input;
                 return true;

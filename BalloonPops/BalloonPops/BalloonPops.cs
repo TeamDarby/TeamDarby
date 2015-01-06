@@ -16,7 +16,7 @@ namespace BalloonPops
     /// </summary>
     public class BalloonPops
     {
-        #region constants
+        #region constantopScore
         const string TOP = "top";
         const string RESTART = "restart";
         const string EXIT = "exit";
@@ -25,9 +25,9 @@ namespace BalloonPops
         public void Play()
         {
 
-            GameBoard board = new GameBoard();
-            board.GenerateNewGame();
-            board.PrintGameBoard();
+            GameBoard gameBoard = new GameBoard();
+            gameBoard.GenerateNewGame();
+            gameBoard.PrintGameBoard();
             TopScore topScore = new TopScore();
 
             topScore.OpenTopScoreList();
@@ -36,14 +36,14 @@ namespace BalloonPops
             Coordinates coordinates = new Coordinates();
             Command command = new Command();
 
-            while (board.RemainingBaloons > 0)
+            while (gameBoard.RemainingBaloons > 0)
             {
-                if (board.ReadInput(out isCoordinates, ref coordinates, ref command))
+                if (gameBoard.ReadInput(out isCoordinates, ref coordinates, ref command))
                 {
                     if (isCoordinates)
                     {
-                        board.Shoot(coordinates);
-                        board.PrintGameBoard();
+                        gameBoard.Shoot(coordinates);
+                        gameBoard.PrintGameBoard();
                     }
                     else
                     {
@@ -56,8 +56,8 @@ namespace BalloonPops
                                 break;
                             case RESTART:
                                 {
-                                    board.GenerateNewGame();
-                                    board.PrintGameBoard();
+                                    gameBoard.GenerateNewGame();
+                                    gameBoard.PrintGameBoard();
                                 }
                                 break;
                             case EXIT:
@@ -73,7 +73,7 @@ namespace BalloonPops
                 }
             }
 
-            int score = board.ShootCounter;
+            int score = gameBoard.ShootCounter;
 
             /*
              * If the player has the best score, his result is saved as top in the list
