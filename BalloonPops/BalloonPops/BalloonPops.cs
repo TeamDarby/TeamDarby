@@ -50,7 +50,7 @@ namespace BalloonPops
         {
             Console.WriteLine(Message.Welcome);
             Console.WriteLine(Message.Info);
-            gameBoard.GenerateNewGame();
+            gameBoard.NewGame();
             gameBoard.PrintGameBoard();
         }
 
@@ -62,7 +62,7 @@ namespace BalloonPops
                 {
                     if (isCoordinates)
                     {
-                        gameBoard.NewShoot(coordinates);
+                        gameBoard.Shoot(coordinates);
                         gameBoard.PrintGameBoard();
                     }
                     else
@@ -76,7 +76,7 @@ namespace BalloonPops
                                 break;
                             case RESTART:
                                 {
-                                    gameBoard.GenerateNewGame();
+                                    gameBoard.NewGame();
                                     gameBoard.PrintGameBoard();
                                 }
                                 break;
