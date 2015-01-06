@@ -80,6 +80,8 @@ namespace BalloonPops
              * */
             if (topScore.IsTopScore(score))
             {
+                Console.WriteLine("Congratulations, you have popped more ballons"
+                    + " then the other players!");
                 Console.WriteLine("Please enter your name for the top scoreboard: ");
                 string name = Console.ReadLine();
                 IPlayer player = new Player(name, score);

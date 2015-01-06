@@ -104,7 +104,7 @@
                 }
                 else
                 {
-                    Console.WriteLine("Wrong y coordinates");
+                    Console.WriteLine("Wrong Y coordinates");
                     return false;
                 }
             }

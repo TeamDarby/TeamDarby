@@ -7,9 +7,12 @@
 
     class GameBoard
     {
-        char[,] gameBoard = new char[25, 8];
-        int numOfShoots = 0;
-        int remainingShoots = 50;
+        public const int Rows = 8;
+        public const int Columns = 25;
+
+        public char[,] gameBoard = new char[Columns, Rows];
+        private  int numOfShoots = 0;
+        private  int remainingShoots = 50;
 
         public int ShootCounter
         {
@@ -43,16 +46,18 @@
         /// </summary>
         public void GenerateNewGame()
         {
-            Console.WriteLine("Welcome to “Balloons Pops” game. Please try to pop the balloons. Use 'top' to view the top scoreboard, 'restart' to start a new game and 'exit' to quit the game.");
+            Console.WriteLine("Welcome to “Balloons Pops” game. Please try to pop the balloons."
+                              +"Use 'top' to view the top scoreboard, 'restart' to start a new game"
+                              +" and 'exit' to quit the game.");
             remainingShoots = 50;
             FillBlankGameBoard();
 
             Random random = new Random();
             Coordinates coords = new Coordinates();
 
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < Columns; i++)
             {
-                for (int j = 0; j < 5; j++)
+                for (int j = 0; j < Rows; j++)
                 {
                     coords.X = i;
                     coords.Y = j;
@@ -199,6 +204,7 @@
 
             tempCoordinates.X = coordinate.X - 1;
             tempCoordinates.Y = coordinate.Y;
+
             while (currentBaloon == get(tempCoordinates))
             {
                 AddNewBaloonToGameBoard(tempCoordinates, '.');
@@ -218,8 +224,6 @@
             tempCoordinates.Y = coordinate.Y - 1;
             while (currentBaloon == get(tempCoordinates))
             {
-
-
                 AddNewBaloonToGameBoard(tempCoordinates, '.');
                 remainingShoots--;
                 tempCoordinates.Y--;
