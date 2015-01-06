@@ -77,7 +77,7 @@ namespace BalloonPops
         {
             bool isTopScore = true;
 
-            if (this.topPlayers.Count >= TopPlayersCount && this.topPlayers[TopPlayersCount - 1].Score > score)
+            if (this.topPlayers.Count >= TopPlayersCount && this.topPlayers[TopPlayersCount - 1].Score < score)
             {
                 isTopScore = false;
             }

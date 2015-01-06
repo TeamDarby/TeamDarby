@@ -195,37 +195,38 @@
             tempCoordinates.X = coordinate.X - 1;
             tempCoordinates.Y = coordinate.Y;
 
-            while (currentBaloon == FindPosition(tempCoordinates))
+            for (int i = 0; i < 4; i++)
             {
-                AddBaloon(tempCoordinates, 0);
-                Baloons--;
-                tempCoordinates.X--;
-            }
-
-            tempCoordinates.X = coordinate.X + 1; tempCoordinates.Y = coordinate.Y;
-            while (currentBaloon == FindPosition(tempCoordinates))
-            {
-                AddBaloon(tempCoordinates, 0);
-                Baloons--;
-                tempCoordinates.X++;
-            }
-
-            tempCoordinates.X = coordinate.X;
-            tempCoordinates.Y = coordinate.Y - 1;
-            while (currentBaloon == FindPosition(tempCoordinates))
-            {
-                AddBaloon(tempCoordinates, 0);
-                Baloons--;
-                tempCoordinates.Y--;
-            }
-
-            tempCoordinates.X = coordinate.X;
-            tempCoordinates.Y = coordinate.Y + 1;
-            while (currentBaloon == FindPosition(tempCoordinates))
-            {
-                AddBaloon(tempCoordinates, 0);
-                Baloons--;
-                tempCoordinates.Y++;
+                while (currentBaloon == FindPosition(tempCoordinates))
+                {
+                    AddBaloon(tempCoordinates, 0);
+                    Baloons--;
+                    tempCoordinates.X--;
+                }
+                //1
+                switch (i)
+                {
+                    case 1:
+                    {
+                        tempCoordinates.X = coordinate.X + 1;
+                        tempCoordinates.Y = coordinate.Y;
+                        break;
+                    }
+                    case 2:
+                    {
+                        tempCoordinates.X = coordinate.X;
+                        tempCoordinates.Y = coordinate.Y - 1;
+                        break;
+                    }
+                    case 3:
+                    {
+                        tempCoordinates.X = coordinate.X;
+                        tempCoordinates.Y = coordinate.Y + 1;
+                        break;
+                    }
+                    default:
+                        break;
+                }
             }
 
             LandFlyingBaloons();
