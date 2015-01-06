@@ -22,18 +22,38 @@ namespace BalloonPops
         const string EXIT = "exit";
         #endregion
 
+        ScoreManager scoreManager;
+        GameBoard gameBoard;
+        Coordinates coordinates;
+        Command command;
+        bool isCoordinates;
+
+
+        public BalloonPops()
+        {
+            this.scoreManager = new ScoreManager();
+            this.gameBoard = new GameBoard();
+            this.coordinates = new Coordinates();
+            this.command = new Command();
+            this.isCoordinates = false;
+        }
+
         public void Play()
         {
+            Initialize();
+            Run();
+            End();
+        }
 
-            GameBoard gameBoard = new GameBoard();
+
+        private void Initialize()
+        {
             gameBoard.GenerateNewGame();
             gameBoard.PrintGameBoard();
-            ScoreManager topScore = new ScoreManager();
-            
-            bool isCoordinates;
-            Coordinates coordinates = new Coordinates();
-            Command command = new Command();
+        }
 
+        private void Run()
+        {
             while (gameBoard.RemainingBaloons > 0)
             {
                 if (gameBoard.ReadInput(out isCoordinates, ref coordinates, ref command))
@@ -49,7 +69,7 @@ namespace BalloonPops
                         {
                             case TOP:
                                 {
-                                    topScore.PrintScoreList();
+                                    scoreManager.PrintScoreList();
                                 }
                                 break;
                             case RESTART:
@@ -70,19 +90,23 @@ namespace BalloonPops
                     Console.WriteLine(Message.WrongInput);
                 }
             }
+        }
 
-            int score = gameBoard.ShootCounter;
+        private void End()
+        {
+            int result = gameBoard.ShootCounter;
 
-            /*
-             * If the player has the best score, his result is saved as top in the list
-             * */
-            if (topScore.IsTopScore(score))
+            if (scoreManager.IsTopScore(result))
             {
                 Console.WriteLine(Message.Success);
                 Console.WriteLine(Message.EnterName);
                 string name = Console.ReadLine();
-                IPlayer player = new Player(name, score);
-                topScore.AddBestPlayer(player);
+                IPlayer player = new Player(name, result);
+                scoreManager.AddBestPlayer(player);
+            }
+            else
+            {
+                Console.WriteLine(Message.NotBestScore);
             }
         }
     }
