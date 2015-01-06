@@ -62,7 +62,7 @@ namespace BalloonPops
                 {
                     if (isCoordinates)
                     {
-                        gameBoard.Shoot(coordinates);
+                        gameBoard.NewShoot(coordinates);
                         gameBoard.PrintGameBoard();
                     }
                     else

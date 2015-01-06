@@ -9,8 +9,11 @@
     {
         #region Constants
 
-        public const int Rows = 8;
-        public const int Cols = 25;
+        public const int BoardWidth = 25;
+        public const int BoardHeight = 8;        
+        public const int Rows = 5;
+        public const int Cols = 10;
+
         private const char Zero = '0';
         private const char Dash = '-';
         private const char Blank = ' ';
@@ -23,7 +26,8 @@
 
         #region Fields
 
-        public char[,] gameBoard = new char[Cols, Rows];
+        public char[,] gameBoard = new char[BoardWidth, BoardHeight];
+        public int[,] newGameBoard = new int[Rows, Cols];
         private int shoots = 0;
         private int balloons = 50;
 
@@ -69,6 +73,28 @@
 
         #endregion
 
+
+        public void GenerateGameBoard()
+        {
+            Shoots = 50;
+
+            Random random = new Random();
+            Coordinates coords = new Coordinates();
+
+            for (int i = 0; i < Rows; i++)
+            {
+                for (int j = 0; j < Cols; j++)
+                {
+                    coords.X = j;
+                    coords.Y = i;
+
+
+                    AddBaloon(coords, (random.Next(1, 5)));
+                }
+            }
+        }
+
+
         /// <summary>
         /// Method that start the game again and position all elements on the board
         /// </summary>
@@ -76,14 +102,15 @@
         {
 
             Shoots = 50;
-            FillBlankGameBoard();
-
-            Random random = new Random();
+            //FillBlankGameBoard();
+            GenerateGameBoard();
+            /*Random random = new Random();
             Coordinates coords = new Coordinates();
 
-            for (int i = 0; i < Cols; i++)
+
+            for (int i = 0; i < BoardWidth; i++)
             {
-                for (int j = 0; j < Rows; j++)
+                for (int j = 0; j < BoardHeight; j++)
                 {
                     coords.X = i;
                     coords.Y = j;
@@ -91,7 +118,9 @@
 
                     AddNewBaloonToGameBoard(coords, (char)(random.Next(1, 5) + (int)Zero));
                 }
-            }
+            }*/
+
+            
         }
 
         /// <summary>
@@ -107,6 +136,18 @@
             gameBoard[xPosition, yPosition] = value;
         }
 
+        private void AddBaloon(Coordinates coordinate, int value)
+        {
+            int xPosition, yPosition;
+            xPosition = coordinate.X;
+            yPosition = coordinate.Y;
+            newGameBoard[yPosition, xPosition] = value;
+        }
+
+
+
+
+
         /// <summary>
         /// This method gets the current coordinates
         /// </summary>
@@ -115,19 +156,35 @@
         private char get(Coordinates coordinate)
         {
             int xPosition, yPosition;
-            if (coordinate.X < 0 || coordinate.Y < 0 || coordinate.X > 9 || coordinate.Y > 4) return 'e';
+            if (coordinate.X < 0 || coordinate.Y < 0 || coordinate.X > 9 || coordinate.Y > 4)
+            {
+                return 'e';
+            }
+
             xPosition = 4 + coordinate.X * 2;
-
-
             yPosition = 2 + coordinate.Y;
             return gameBoard[xPosition, yPosition];
+        }
+
+        private int FindPosition(Coordinates coordinate)
+        {
+            int xPosition, yPosition;
+            if (coordinate.X < 0 || coordinate.Y < 0 || coordinate.X > 9 || coordinate.Y > 4)
+            {
+                return 'e';
+            }
+
+            xPosition = coordinate.X;
+            yPosition = coordinate.Y;
+            return newGameBoard[yPosition, xPosition];
         }
 
         /// <summary>
         /// Fill the blank fields on the gameboard
         /// </summary>
-        private void FillBlankGameBoard()
+       /* private void FillBlankGameBoard()
         {
+
             //printing blank spaces
             for (int i = 0; i < 8; i++)
             {
@@ -149,8 +206,14 @@
 
             for (int i = 4; i < 25; i++)
             {
-                if ((i % 2 == 0) && numOfShootser <= '9') gameBoard[i, 0] = (char)numOfShootser++;
-                else gameBoard[i, 0] = ' ';
+                if ((i % 2 == 0) && numOfShootser <= '9')
+                {
+                    gameBoard[i, 0] = (char)numOfShootser++;
+                }
+                else
+                {
+                    gameBoard[i, 0] = ' ';
+                }
             }
 
             //printing second row
@@ -187,26 +250,52 @@
             {
                 gameBoard[24, i] = '|';
             }
-        }
+        }*/
 
         /// <summary>
         /// Print the gameboard on the screen
         /// </summary>
         public void PrintGameBoard()
         {
-            for (int i = 0; i < 8; i++)
-            {
-                for (int j = 0; j < 25; j++)
-                {
-
-                    // Possible bottleneck!!!
-                    Console.Write(gameBoard[j, i]);
-                }
-                Console.WriteLine();
-            }
-            Console.WriteLine();
+            string board = GameBoardsToString();
+            Console.WriteLine(board);
         }
 
+        public string GameBoardsToString()
+        {
+            StringBuilder board = new StringBuilder();
+            string header = "    0 1 2 3 4 5 6 7 8 9 ";
+            string empty = new string(' ', 3);
+            string line = empty + new string('-', 21) + empty;
+            string currentLine = "";
+            int balloonValue = 0;
+            board.AppendLine(header);
+            board.AppendLine(line);
+
+            for (int row = 0; row < 5; row++)
+            {
+                currentLine = string.Format("{0} {1}", row, VerticalBar);
+                for (int col = 0; col < 10; col++)
+                {
+                    balloonValue = newGameBoard[row, col];
+                    currentLine += " ";
+                    if (balloonValue == 0)
+                    {
+                        currentLine += '.';
+                    }
+                    else
+                    {
+                        currentLine += balloonValue;
+                    }
+                }
+                currentLine += " " + VerticalBar;
+                board.AppendLine(currentLine);
+            }
+            board.AppendLine(line);
+
+            return board.ToString();
+        }
+        
         /// <summary>
         /// This method pops the selected ballons and clean them from the board
         /// </summary>
@@ -268,11 +357,79 @@
             LandFlyingBaloons();
         }
 
+        public void NewShoot(Coordinates coordinate)
+        {
+            int currentBaloon;
+            currentBaloon = FindPosition(coordinate);
+            Coordinates tempCoordinates = new Coordinates();
+
+            if (currentBaloon < 1 || currentBaloon > 4)
+            {
+                Console.WriteLine(Message.IllegalMove);
+                return;
+            }
+
+
+
+            AddBaloon(coordinate, 0);
+            Shoots--;
+
+            tempCoordinates.X = coordinate.X - 1;
+            tempCoordinates.Y = coordinate.Y;
+
+            while (currentBaloon == FindPosition(tempCoordinates))
+            {
+                AddBaloon(tempCoordinates, 0);
+                Shoots--;
+                tempCoordinates.X--;
+            }
+
+            tempCoordinates.X = coordinate.X + 1; tempCoordinates.Y = coordinate.Y;
+            while (currentBaloon == FindPosition(tempCoordinates))
+            {
+                AddBaloon(tempCoordinates, 0);
+                Shoots--;
+                tempCoordinates.X++;
+            }
+
+            tempCoordinates.X = coordinate.X;
+            tempCoordinates.Y = coordinate.Y - 1;
+            while (currentBaloon == FindPosition(tempCoordinates))
+            {
+                AddBaloon(tempCoordinates, 0);
+                Shoots--;
+                tempCoordinates.Y--;
+            }
+
+            tempCoordinates.X = coordinate.X;
+            tempCoordinates.Y = coordinate.Y + 1;
+            while (currentBaloon == FindPosition(tempCoordinates))
+            {
+                AddBaloon(tempCoordinates, 0);
+                Shoots--;
+                tempCoordinates.Y++;
+            }
+
+            Shoots++;
+            NewLandFlyingBaloons();
+        }
+
+
+
         private void Swap(Coordinates coordinate, Coordinates coordinate1)
         {
             char tmp = get(coordinate);
             AddNewBaloonToGameBoard(coordinate, get(coordinate1));
             AddNewBaloonToGameBoard(coordinate1, tmp);
+
+
+        }
+
+        private void NewSwap(Coordinates coordinate, Coordinates coordinate1)
+        {
+            int tmp = FindPosition(coordinate);
+            AddBaloon(coordinate, FindPosition(coordinate1));
+            AddBaloon(coordinate1, tmp);
 
 
         }
@@ -297,6 +454,35 @@
                             tempCoordinates1.X = i;
                             tempCoordinates1.Y = k - 1;
                             Swap(tempCoordinates, tempCoordinates1);
+                        }
+                    }
+                }
+
+
+            }
+        }
+
+
+        private void NewLandFlyingBaloons()
+        {
+            Coordinates coordinate = new Coordinates();
+            for (int i = 0; i < 10; i++)
+            {
+                for (int j = 0; j <= 4; j++)
+                {
+                    coordinate.X = i;
+                    coordinate.Y = j;
+                    if (FindPosition(coordinate) == '.')
+                    {
+                        for (int k = j; k > 0; k--)
+                        {
+                            Coordinates tempCoordinates = new Coordinates();
+                            Coordinates tempCoordinates1 = new Coordinates();
+                            tempCoordinates.X = i;
+                            tempCoordinates.Y = k;
+                            tempCoordinates1.X = i;
+                            tempCoordinates1.Y = k - 1;
+                            NewSwap(tempCoordinates, tempCoordinates1);
                         }
                     }
                 }
