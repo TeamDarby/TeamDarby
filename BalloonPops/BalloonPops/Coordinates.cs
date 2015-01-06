@@ -10,6 +10,9 @@
         private int x;
         private int y;
 
+        /// <summary>
+        /// Property for the Y coordinate
+        /// </summary>
         public int X
         {
             get
@@ -25,11 +28,14 @@
                 }
                 else
                 {
-                    throw new ArgumentOutOfRangeException("X", "Wrong X coordinate value");
+                    //throw new ArgumentOutOfRangeException("X", "Wrong X coordinate value");
                 }
             }
         }
 
+        /// <summary>
+        /// Property for the Y coordinate
+        /// </summary>
         public int Y
         {
             get
@@ -45,11 +51,17 @@
                 }
                 else
                 {
-                    throw new ArgumentOutOfRangeException("Wrong Y coordinate value");
+                    //throw new ArgumentOutOfRangeException("Wrong Y coordinate value");
                 }
             }
         }
 
+        /// <summary>
+        /// Method that check the coordinates and whether there are existing coordinates
+        /// </summary>
+        /// <param name="input">The input string with elements</param>
+        /// <param name="result">The coordinates where the player is staying</param>
+        /// <returns></returns>
         public static bool TryParse(string input, ref Coordinates result)
         {
             char[] separators = { ' ', ',' };
