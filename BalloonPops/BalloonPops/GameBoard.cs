@@ -46,9 +46,8 @@
         /// </summary>
         public void GenerateNewGame()
         {
-            Console.WriteLine("Welcome to “Balloons Pops” game. Please try to pop the balloons."
-                              +"Use 'top' to view the top scoreboard, 'restart' to start a new game"
-                              +" and 'exit' to quit the game.");
+            Console.WriteLine(Message.Welcome);
+            Console.WriteLine(Message.Info);
             remainingShoots = 50;
             FillBlankGameBoard();
 
@@ -193,7 +192,7 @@
 
             if (currentBaloon < '1' || currentBaloon > '4')
             {
-                Console.WriteLine("Illegal move: cannot pop missing ballon!");
+                Console.WriteLine(Message.IllegalMove);
                 return;
             }
 
@@ -288,7 +287,7 @@
         /// <returns>Returns true if the coordinates are correct. Return false if the coordinates are not correct</returns>
         public bool ReadInput(out bool IsCoordinates, ref Coordinates coordinates, ref Command command)
         {
-            Console.Write("Enter a row and column: ");
+            Console.Write(Message.EnterValues);
             string consoleInput = Console.ReadLine();
 
             coordinates = new Coordinates();
