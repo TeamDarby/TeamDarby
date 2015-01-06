@@ -20,7 +20,7 @@
                 return this.x;
             }
 
-            private set
+            set
             {
                 if (value >= 0 && value <= 9)
                 {
@@ -43,7 +43,7 @@
                 return this.y;
             }
 
-            private set
+            set
             {
                 if (value >= 0 && value <= 4)
                 {

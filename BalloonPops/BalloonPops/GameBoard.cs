@@ -258,8 +258,8 @@
             {
                 for (int j = 0; j <= 4; j++)
                 {
-                    coords.X = i;
-                    coords.Y = j;
+                    coordinate.X = i;
+                    coordinate.Y = j;
                     if (get(coordinate) == '.')
                     {
                         for (int k = j; k > 0; k--)
