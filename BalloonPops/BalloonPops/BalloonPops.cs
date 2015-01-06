@@ -48,13 +48,15 @@ namespace BalloonPops
 
         private void Initialize()
         {
+            Console.WriteLine(Message.Welcome);
+            Console.WriteLine(Message.Info);
             gameBoard.GenerateNewGame();
             gameBoard.PrintGameBoard();
         }
 
         private void Run()
         {
-            while (gameBoard.RemainingBaloons > 0)
+            while (gameBoard.Baloons > 0)
             {
                 if (gameBoard.ReadInput(out isCoordinates, ref coordinates, ref command))
                 {
@@ -94,7 +96,7 @@ namespace BalloonPops
 
         private void End()
         {
-            int result = gameBoard.ShootCounter;
+            int result = gameBoard.Shoots;
 
             if (scoreManager.IsTopScore(result))
             {

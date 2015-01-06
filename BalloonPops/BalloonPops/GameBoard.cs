@@ -7,54 +7,81 @@
 
     class GameBoard
     {
+        #region Constants
+
         public const int Rows = 8;
-        public const int Columns = 25;
+        public const int Cols = 25;
+        private const char Zero = '0';
+        private const char Dash = '-';
+        private const char Blank = ' ';
+        private const char Nine = '9';
+        private const char Four = '4';
+        private const char VerticalBar = '|';
 
-        public char[,] gameBoard = new char[Columns, Rows];
-        private  int numOfShoots = 0;
-        private  int remainingShoots = 50;
 
-        public int ShootCounter
+        #endregion
+
+        #region Fields
+
+        public char[,] gameBoard = new char[Cols, Rows];
+        private int shoots = 0;
+        private int balloons = 50;
+
+        #endregion
+
+        #region Properties
+
+        public int Shoots
         {
             get
             {
-                return numOfShoots;
-
+                return this.shoots;
             }
 
             private set
             {
-                this.numOfShoots = value;
+                if (value < 0 || value > 50)
+                {
+                    throw new ArgumentOutOfRangeException("shoots", "Shoots cant be negative or more than all possible balloons!");
+                }
+
+                this.shoots = value;
             }
         }
 
-        public int RemainingBaloons
+        public int Baloons
         {
             get
             {
-                return remainingShoots;
+                return this.balloons;
             }
 
             private set
             {
-                this.remainingShoots = value;
+                if (value < 0 || value > 50)
+                {
+                    throw new ArgumentOutOfRangeException("balloons", "Balloons cant be negative or more than all possible balloons!");
+                }
+
+                this.balloons = value;
             }
         }
+
+        #endregion
 
         /// <summary>
         /// Method that start the game again and position all elements on the board
         /// </summary>
         public void GenerateNewGame()
         {
-            Console.WriteLine(Message.Welcome);
-            Console.WriteLine(Message.Info);
-            remainingShoots = 50;
+
+            Shoots = 50;
             FillBlankGameBoard();
 
             Random random = new Random();
             Coordinates coords = new Coordinates();
 
-            for (int i = 0; i < Columns; i++)
+            for (int i = 0; i < Cols; i++)
             {
                 for (int j = 0; j < Rows; j++)
                 {
@@ -62,7 +89,7 @@
                     coords.Y = j;
 
 
-                    AddNewBaloonToGameBoard(coords, (char)(random.Next(1, 5) + (int)'0'));
+                    AddNewBaloonToGameBoard(coords, (char)(random.Next(1, 5) + (int)Zero));
                 }
             }
         }
@@ -117,7 +144,7 @@
                 gameBoard[i, 0] = ' ';
             }
 
-            char numOfShootser = '0';
+            char numOfShootser = Zero;
 
 
             for (int i = 4; i < 25; i++)
@@ -199,7 +226,7 @@
 
 
             AddNewBaloonToGameBoard(coordinate, '.');
-            remainingShoots--;
+            Shoots--;
 
             tempCoordinates.X = coordinate.X - 1;
             tempCoordinates.Y = coordinate.Y;
@@ -207,7 +234,7 @@
             while (currentBaloon == get(tempCoordinates))
             {
                 AddNewBaloonToGameBoard(tempCoordinates, '.');
-                remainingShoots--;
+                Shoots--;
                 tempCoordinates.X--;
             }
 
@@ -215,7 +242,7 @@
             while (currentBaloon == get(tempCoordinates))
             {
                 AddNewBaloonToGameBoard(tempCoordinates, '.');
-                remainingShoots--;
+                Shoots--;
                 tempCoordinates.X++;
             }
 
@@ -224,7 +251,7 @@
             while (currentBaloon == get(tempCoordinates))
             {
                 AddNewBaloonToGameBoard(tempCoordinates, '.');
-                remainingShoots--;
+                Shoots--;
                 tempCoordinates.Y--;
             }
 
@@ -233,11 +260,11 @@
             while (currentBaloon == get(tempCoordinates))
             {
                 AddNewBaloonToGameBoard(tempCoordinates, '.');
-                remainingShoots--;
+                Shoots--;
                 tempCoordinates.Y++;
             }
 
-            numOfShoots++;
+            Shoots++;
             LandFlyingBaloons();
         }
 
