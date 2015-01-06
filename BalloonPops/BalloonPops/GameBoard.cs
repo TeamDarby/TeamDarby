@@ -92,7 +92,8 @@
         /// </summary>
         public void NewGame()
         {
-            Shoots = 50;
+            Shoots = 0;
+            Baloons = 50;
             GenerateGameBoard();
         }
 
@@ -188,7 +189,8 @@
             }
 
             AddBaloon(coordinate, 0);
-            Shoots--;
+            Baloons--;
+            Shoots++;
 
             tempCoordinates.X = coordinate.X - 1;
             tempCoordinates.Y = coordinate.Y;
@@ -196,7 +198,7 @@
             while (currentBaloon == FindPosition(tempCoordinates))
             {
                 AddBaloon(tempCoordinates, 0);
-                Shoots--;
+                Baloons--;
                 tempCoordinates.X--;
             }
 
@@ -204,7 +206,7 @@
             while (currentBaloon == FindPosition(tempCoordinates))
             {
                 AddBaloon(tempCoordinates, 0);
-                Shoots--;
+                Baloons--;
                 tempCoordinates.X++;
             }
 
@@ -213,7 +215,7 @@
             while (currentBaloon == FindPosition(tempCoordinates))
             {
                 AddBaloon(tempCoordinates, 0);
-                Shoots--;
+                Baloons--;
                 tempCoordinates.Y--;
             }
 
@@ -222,11 +224,10 @@
             while (currentBaloon == FindPosition(tempCoordinates))
             {
                 AddBaloon(tempCoordinates, 0);
-                Shoots--;
+                Baloons--;
                 tempCoordinates.Y++;
             }
 
-            Shoots++;
             LandFlyingBaloons();
         }
 
@@ -246,7 +247,7 @@
                 {
                     coordinate.X = i;
                     coordinate.Y = j;
-                    if (FindPosition(coordinate) == '.')
+                    if (FindPosition(coordinate) == 0)
                     {
                         for (int k = j; k > 0; k--)
                         {

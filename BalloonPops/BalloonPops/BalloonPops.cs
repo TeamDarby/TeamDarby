@@ -57,7 +57,7 @@ namespace BalloonPops
         private void Run()
         {
             while (gameBoard.Baloons > 0)
-            {
+            {                
                 if (gameBoard.ReadInput(out isCoordinates, ref coordinates, ref command))
                 {
                     if (isCoordinates)
