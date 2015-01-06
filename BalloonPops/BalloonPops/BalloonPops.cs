@@ -28,9 +28,9 @@ namespace BalloonPops
             GameBoard gb = new GameBoard();
             gb.GenerateNewGame();
             gb.PrintGameBoard();
-            TopScore ts = new TopScore();
+            ScoreManager ts = new ScoreManager();
 
-            ts.OpenTopScoreList();
+            ts.LoadTopScore();
             
             bool isCoordinates;
             Coordinates coordinates = new Coordinates();

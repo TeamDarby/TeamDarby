@@ -25,7 +25,7 @@
                 }
                 else
                 {
-                    throw new ArgumentOutOfRangeException("X", "Wrong X coordinate value");
+                    //throw new ArgumentOutOfRangeException("X", "Wrong X coordinate value");
                 }
             }
         }
@@ -45,7 +45,7 @@
                 }
                 else
                 {
-                    throw new ArgumentOutOfRangeException("Y", "Wrong Y coordinate value");
+                    //throw new ArgumentOutOfRangeException("Y", "Wrong Y coordinate value");
                 }
             }
         }
