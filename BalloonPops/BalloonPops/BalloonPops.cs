@@ -29,8 +29,6 @@ namespace BalloonPops
             gameBoard.GenerateNewGame();
             gameBoard.PrintGameBoard();
             ScoreManager topScore = new ScoreManager();
-
-            topScore.LoadTopScore();
             
             bool isCoordinates;
             Coordinates coordinates = new Coordinates();
@@ -85,9 +83,8 @@ namespace BalloonPops
                 Console.WriteLine("Please enter your name for the top scoreboard: ");
                 string name = Console.ReadLine();
                 IPlayer player = new Player(name, score);
-                topScore.AddToTopScoreList(player);
+                topScore.ManageBestPlayer(player);
             }
-            topScore.SaveTopScoreList();
         }
     }
 }

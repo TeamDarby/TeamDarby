@@ -13,7 +13,7 @@ namespace BalloonPops
     using System.Text;
 
     /// <summary>
-    /// Responsible for managing top results
+    /// Responsible for managing top results.
     /// </summary>
     public class ScoreManager
     {
@@ -32,11 +32,33 @@ namespace BalloonPops
         #endregion
 
         /// <summary>
-        /// List with all top players name and score
+        /// List with all top players name and score.
         /// </summary>
-        private List<IPlayer> topPlayers = new List<IPlayer>();
-   
+        private List<IPlayer> topPlayers;
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ScoreManager"/> class.
+        /// </summary>
+        public ScoreManager()
+        {
+            this.topPlayers = new List<IPlayer>();
+            this.LoadTopScore();
+        }
+
         #region Public methods
+
+        /// <summary>
+        /// Manage top score data
+        /// </summary>
+        /// <param name="player">Instance of class Player</param>
+        public void ManageBestPlayer(IPlayer player)
+        {
+            if (this.IsTopScore(player.Score))
+            {
+                this.AddToTopScoreList(player);
+                this.SaveTopScoreList();
+            }
+        }
 
         /// <summary>
         /// Check whether given score meets the criteria for a score in the top 5
@@ -53,62 +75,6 @@ namespace BalloonPops
             }
 
             return isTopScore;
-        }
-
-        /// <summary>
-        /// Add new player record to top score records
-        /// </summary>
-        /// <param name="person">Instance of class Player</param>
-        public void AddToTopScoreList(IPlayer person)
-        {
-            this.topPlayers.Add(person);
-            this.topPlayers.Sort();
-            while (this.topPlayers.Count > 5)
-            {
-                this.topPlayers.RemoveAt(5);
-            }
-        }
-
-        /// <summary>
-        /// Gets all records from txt file and push them all to a List
-        /// </summary>
-        public void LoadTopScore()
-        {
-            using (StreamReader topScoreReader = new StreamReader(Path))
-            {
-                string line = topScoreReader.ReadLine();
-                while (line != null)
-                {
-                    char[] separators = { ' ' };
-                    string[] substrings = line.Split(separators);
-                    int substringsCount = substrings.Count<string>();
-                    if (substringsCount > 0)
-                    {
-                        string name = substrings[1];
-                        int score = int.Parse(substrings[substringsCount - 2]);
-                        IPlayer player = new Player(name, score);
-                        this.topPlayers.Add(player);
-                    }
-
-                    line = topScoreReader.ReadLine();
-                }
-            }
-        }
-
-        /// <summary>
-        /// Save data from top score list into a txt file
-        /// </summary>
-        public void SaveTopScoreList()
-        {
-            if (this.topPlayers.Count > 0)
-            {
-                string topScoreRecords = this.TopScoreListToString();
-                
-                using (StreamWriter topScoreStreamWriter = new StreamWriter(Path))
-                {                    
-                    topScoreStreamWriter.Write(topScoreRecords);
-                }
-            }
         }
 
         /// <summary>
@@ -132,6 +98,62 @@ namespace BalloonPops
         #endregion
 
         #region Private Methods
+
+        /// <summary>
+        /// Add new player record to top score records
+        /// </summary>
+        /// <param name="player">Need instances of class Player</param>
+        private void AddToTopScoreList(IPlayer player)
+        {
+            this.topPlayers.Add(player);
+            this.topPlayers.Sort();
+            while (this.topPlayers.Count > 5)
+            {
+                this.topPlayers.RemoveAt(5);
+            }
+        }
+
+        /// <summary>
+        /// Save data from top score list into a txt file
+        /// </summary>
+        private void SaveTopScoreList()
+        {
+            if (this.topPlayers.Count > 0)
+            {
+                string topScoreRecords = this.TopScoreListToString();
+
+                using (StreamWriter topScoreStreamWriter = new StreamWriter(Path))
+                {
+                    topScoreStreamWriter.Write(topScoreRecords);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Gets all records from txt file and push them all to a List
+        /// </summary>
+        private void LoadTopScore()
+        {
+            using (StreamReader topScoreReader = new StreamReader(Path))
+            {
+                string line = topScoreReader.ReadLine();
+                while (line != null)
+                {
+                    char[] separators = { ' ' };
+                    string[] substrings = line.Split(separators);
+                    int substringsCount = substrings.Count<string>();
+                    if (substringsCount > 0)
+                    {
+                        string name = substrings[1];
+                        int score = int.Parse(substrings[substringsCount - 2]);
+                        IPlayer player = new Player(name, score);
+                        this.topPlayers.Add(player);
+                    }
+
+                    line = topScoreReader.ReadLine();
+                }
+            }
+        }
 
         /// <summary>
         /// Converts data from top score list to a System.String
