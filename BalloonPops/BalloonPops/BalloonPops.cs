@@ -82,7 +82,7 @@ namespace BalloonPops
                 Console.WriteLine(Message.EnterName);
                 string name = Console.ReadLine();
                 IPlayer player = new Player(name, score);
-                topScore.ManageBestPlayer(player);
+                topScore.AddBestPlayer(player);
             }
         }
     }

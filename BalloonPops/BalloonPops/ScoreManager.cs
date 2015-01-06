@@ -31,10 +31,16 @@ namespace BalloonPops
 
         #endregion
 
+        #region Fields
+
         /// <summary>
         /// List with all top players name and score.
         /// </summary>
         private List<IPlayer> topPlayers;
+
+        #endregion
+
+        #region Constructor
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ScoreManager"/> class.
@@ -45,13 +51,15 @@ namespace BalloonPops
             this.LoadTopScore();
         }
 
+        #endregion
+
         #region Public methods
 
         /// <summary>
-        /// Manage top score data
+        /// Add new best player to top score list.
         /// </summary>
-        /// <param name="player">Instance of class Player</param>
-        public void ManageBestPlayer(IPlayer player)
+        /// <param name="player">Instance of <see cref="Player"/> class.</param>
+        public void AddBestPlayer(IPlayer player)
         {
             if (this.IsTopScore(player.Score))
             {
@@ -61,10 +69,10 @@ namespace BalloonPops
         }
 
         /// <summary>
-        /// Check whether given score meets the criteria for a score in the top 5
+        /// Check whether given score meets the criteria for a score in the top 5.
         /// </summary>
-        /// <param name="score">Given score to check</param>
-        /// <returns>True or false depending on the given score</returns>
+        /// <param name="score">Given score to check.</param>
+        /// <returns>True or false depending on the given score.</returns>
         public bool IsTopScore(int score)
         {
             bool isTopScore = true;
@@ -78,7 +86,7 @@ namespace BalloonPops
         }
 
         /// <summary>
-        /// Prints information from the list with the top scores on the console
+        /// Prints information from the list with the top scores on the console.
         /// </summary>
         public void PrintScoreList()
         {
@@ -100,9 +108,9 @@ namespace BalloonPops
         #region Private Methods
 
         /// <summary>
-        /// Add new player record to top score records
+        /// Add new player record to top score records.
         /// </summary>
-        /// <param name="player">Need instances of class Player</param>
+        /// <param name="player">Instance of <see cref="Player"/> class.</param>
         private void AddToTopScoreList(IPlayer player)
         {
             this.topPlayers.Add(player);
@@ -114,7 +122,7 @@ namespace BalloonPops
         }
 
         /// <summary>
-        /// Save data from top score list into a txt file
+        /// Save data from top score list into a txt file.
         /// </summary>
         private void SaveTopScoreList()
         {
@@ -130,7 +138,7 @@ namespace BalloonPops
         }
 
         /// <summary>
-        /// Gets all records from txt file and push them all to a List
+        /// Gets all records from txt file and push them all to a list.
         /// </summary>
         private void LoadTopScore()
         {
@@ -156,9 +164,9 @@ namespace BalloonPops
         }
 
         /// <summary>
-        /// Converts data from top score list to a System.String
+        /// Converts data from top score list to a <see cref="System.String"/>.
         /// </summary>
-        /// <returns>String representation of top score list data</returns>
+        /// <returns>String representation of top score list data.</returns>
         private string TopScoreListToString()
         {
             StringBuilder scoreList = new StringBuilder();
