@@ -75,6 +75,9 @@ namespace BalloonPops
 
             int score = board.ShootCounter;
 
+            /*
+             * If the player has the best score, his result is saved as top in the list
+             * */
             if (topScore.IsTopScore(score))
             {
                 Console.WriteLine("Please enter your name for the top scoreboard: ");

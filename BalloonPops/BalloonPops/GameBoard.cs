@@ -1,15 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace BalloonPops
+﻿namespace BalloonPops
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+
     class GameBoard
     {
-        char[,] gb = new char[25, 8];
-        int count = 0;
-        int broya4 = 50;
+       private char[,] board = new char[25, 8];
+       private int count = 0;
+       private int counter = 50;
 
         public int ShootCounter
         {
@@ -17,7 +17,11 @@ namespace BalloonPops
             {
                 return count;
 
+            }
 
+            private set
+            {
+                this.count = value;
             }
         }
 
@@ -25,46 +29,72 @@ namespace BalloonPops
         {
             get
             {
-                return broya4;
+                return counter;
+            }
+
+            private set
+            {
+                this.counter = value;
             }
         }
 
+        /// <summary>
+        /// Method that start the game again and position all elements on the board
+        /// </summary>
         public void GenerateNewGame()
         {
             Console.WriteLine("Welcome to “Balloons Pops” game. Please try to pop the balloons. Use 'top' to view the top scoreboard, 'restart' to start a new game and 'exit' to quit the game.");
-            broya4 = 50;
+            counter = 50;
             FillBlankGameBoard();
+
             Random random = new Random();
-            Coordinates c = new Coordinates();
+            Coordinates coordinate = new Coordinates();
+
             for (int i = 0; i < 10; i++)
             {
                 for (int j = 0; j < 5; j++)
                 {
-                    c.X = i;
-                    c.Y = j;
+                    coordinate.X = i;
+                    coordinate.Y = j;
 
 
-                    AddNewBaloonToGameBoard(c, (char)(random.Next(1, 5) + (int)'0'));
+                    AddNewBaloonToGameBoard(coordinate, (char)(random.Next(1, 5) + (int)'0'));
                 }
             }
         }
-        private void AddNewBaloonToGameBoard(Coordinates c, char value)
+
+        /// <summary>
+        /// This method add new baloons to the gameboard on the selected coordinates
+        /// </summary>
+        /// <param name="coordinate">The current coordinates of the player</param>
+        /// <param name="value"></param>
+        private void AddNewBaloonToGameBoard(Coordinates coordinate, char value)
         {
             int xPosition, yPosition;
-            xPosition = 4 + c.X * 2;
-            yPosition = 2 + c.Y;
-            gb[xPosition, yPosition] = value;
+            xPosition = 4 + coordinate.X * 2;
+            yPosition = 2 + coordinate.Y;
+            board[xPosition, yPosition] = value;
         }
-        private char get(Coordinates c)
+
+        /// <summary>
+        /// This method gets the current coordinates
+        /// </summary>
+        /// <param name="coordinate">The current coordinates</param>
+        /// <returns>Returns the current position of the player on the gameboard</returns>
+        private char get(Coordinates coordinate)
         {
             int xPosition, yPosition;
-            if (c.X < 0 || c.Y < 0 || c.X > 9 || c.Y > 4) return 'e';
-            xPosition = 4 + c.X * 2;
+            if (coordinate.X < 0 || coordinate.Y < 0 || coordinate.X > 9 || coordinate.Y > 4) return 'e';
+            xPosition = 4 + coordinate.X * 2;
 
 
-            yPosition = 2 + c.Y;
-            return gb[xPosition, yPosition];
+            yPosition = 2 + coordinate.Y;
+            return board[xPosition, yPosition];
         }
+
+        /// <summary>
+        /// Fill the blank fields on the gameboard
+        /// </summary>
         private void FillBlankGameBoard()
         {
             //printing blank spaces
@@ -73,14 +103,14 @@ namespace BalloonPops
                 for (int j = 0; j < 25; j++)
                 {
 
-                    gb[j, i] = ' ';
+                    board[j, i] = ' ';
                 }
             }
 
             //printing firs row
             for (int i = 0; i < 4; i++)
             {
-                gb[i, 0] = ' ';
+                board[i, 0] = ' ';
             }
 
             char counter = '0';
@@ -88,14 +118,14 @@ namespace BalloonPops
 
             for (int i = 4; i < 25; i++)
             {
-                if ((i % 2 == 0) && counter <= '9') gb[i, 0] = (char)counter++;
-                else gb[i, 0] = ' ';
+                if ((i % 2 == 0) && counter <= '9') board[i, 0] = (char)counter++;
+                else board[i, 0] = ' ';
             }
 
             //printing second row
             for (int i = 3; i < 24; i++)
             {
-                gb[i, 1] = '-';
+                board[i, 1] = '-';
             }
 
 
@@ -106,28 +136,31 @@ namespace BalloonPops
             {
                 if (counter <= '4')
                 {
-                    gb[0, i] = counter++;
-                    gb[1, i] = ' ';
+                    board[0, i] = counter++;
+                    board[1, i] = ' ';
 
 
-                    gb[2, i] = '|';
-                    gb[3, i] = ' ';
+                    board[2, i] = '|';
+                    board[3, i] = ' ';
                 }
             }
 
             //printing down game board wall
             for (int i = 3; i < 24; i++)
             {
-                gb[i, 7] = '-';
+                board[i, 7] = '-';
             }
 
             //printing right game board wall
             for (int i = 2; i < 7; i++)
             {
-                gb[24, i] = '|';
+                board[24, i] = '|';
             }
         }
 
+        /// <summary>
+        /// Print the gameboard on the screen
+        /// </summary>
         public void PrintGameBoard()
         {
             for (int i = 0; i < 8; i++)
@@ -136,63 +169,68 @@ namespace BalloonPops
                 {
 
                     // Possible bottleneck!!!
-                    Console.Write(gb[j, i]);
+                    Console.Write(board[j, i]);
                 }
                 Console.WriteLine();
             }
             Console.WriteLine();
         }
 
-        public void Shoot(Coordinates c)
+        /// <summary>
+        /// This method pops the selected ballons and clean them from the board
+        /// </summary>
+        /// <param name="coordinate">The current coordinates on the player</param>
+        public void Shoot(Coordinates coordinate)
         {
             char currentBaloon;
-            currentBaloon = get(c);
+            currentBaloon = get(coordinate);
             Coordinates tempCoordinates = new Coordinates();
 
             if (currentBaloon < '1' || currentBaloon > '4')
             {
-                Console.WriteLine("Illegal move: cannot pop missing ballon!");return;
+                Console.WriteLine("Illegal move: cannot pop missing ballon!");
+                return;
             }
 
 
 
-            AddNewBaloonToGameBoard(c, '.');
-            broya4--;
+            AddNewBaloonToGameBoard(coordinate, '.');
+            counter--;
 
-            tempCoordinates.X = c.X - 1;
-            tempCoordinates.Y = c.Y;
+            tempCoordinates.X = coordinate.X - 1;
+            tempCoordinates.Y = coordinate.Y;
             while (currentBaloon == get(tempCoordinates))
             {
                 AddNewBaloonToGameBoard(tempCoordinates, '.');
-                broya4--;
+                counter--;
                 tempCoordinates.X--;
             }
 
-            tempCoordinates.X = c.X + 1; tempCoordinates.Y = c.Y;
+            tempCoordinates.X = coordinate.X + 1; tempCoordinates.Y = coordinate.Y;
             while (currentBaloon == get(tempCoordinates))
             {
                 AddNewBaloonToGameBoard(tempCoordinates, '.');
-                broya4--;
+                counter--;
                 tempCoordinates.X++;
             }
 
-            tempCoordinates.X = c.X;
-            tempCoordinates.Y = c.Y - 1;
+            tempCoordinates.X = ccoordinate.X;
+            tempCoordinates.Y = coordinate.Y - 1;
             while (currentBaloon == get(tempCoordinates))
             {
 
 
                 AddNewBaloonToGameBoard(tempCoordinates, '.');
-                broya4--;
+                counter--;
                 tempCoordinates.Y--;
             }
 
-            tempCoordinates.X = c.X;
-            tempCoordinates.Y = c.Y + 1;
+            tempCoordinates.X = coordinate.X;
+            tempCoordinates.Y = coordinate.Y + 1;
             while (currentBaloon == get(tempCoordinates))
             {
                 AddNewBaloonToGameBoard(tempCoordinates, '.');
-                broya4--;
+                counter--;
                 tempCoordinates.Y++;
             }
 
@@ -200,25 +238,25 @@ namespace BalloonPops
             LandFlyingBaloons();
         }
 
-        private void Swap(Coordinates c, Coordinates c1)
+        private void Swap(Coordinates coordinate, Coordinates coordinate1)
         {
-            char tmp = get(c);
-            AddNewBaloonToGameBoard(c, get(c1));
-            AddNewBaloonToGameBoard(c1, tmp);
+            char tmp = get(coordinate);
+            AddNewBaloonToGameBoard(coordinate, get(coordinate1));
+            AddNewBaloonToGameBoard(coordinate1, tmp);
 
 
         }
 
         private void LandFlyingBaloons()
         {
-            Coordinates c = new Coordinates();
+            Coordinates coordinate = new Coordinates();
             for (int i = 0; i < 10; i++)
             {
                 for (int j = 0; j <= 4; j++)
                 {
-                    c.X = i;
-                    c.Y = j;
-                    if (get(c) == '.')
+                    coordinate.X = i;
+                    coordinate.Y = j;
+                    if (get(coordinate) == '.')
                     {
                         for (int k = j; k > 0; k--)
                         {
@@ -237,6 +275,13 @@ namespace BalloonPops
             }
         }
 
+        /// <summary>
+        /// This method takes the input data where the player want to be positioned
+        /// </summary>
+        /// <param name="IsCoordinates">Verify whether the coordinates are correct</param>
+        /// <param name="coordinates">The position on the player</param>
+        /// <param name="command">The selected command</param>
+        /// <returns>Returns true if the coordinates are correct. Return false if the coordinates are not correct</returns>
         public bool ReadInput(out bool IsCoordinates, ref Coordinates coordinates, ref Command command)
         {
             Console.Write("Enter a row and column: ");
@@ -255,8 +300,6 @@ namespace BalloonPops
                 IsCoordinates = true;
                 return true;
             }
-
-
             else
             {
                 IsCoordinates = false;
