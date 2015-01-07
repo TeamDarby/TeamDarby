@@ -192,9 +192,7 @@
         /// <param name="coordinate">The current coordinates on the player</param>
         public void Shoot(Coordinates coordinate)
         {
-            int currentBaloon;
-            currentBaloon = FindPosition(coordinate);
-            Coordinates tempCoordinates = new Coordinates();
+            int currentBaloon = FindPosition(coordinate);
 
             if (currentBaloon < 1 || currentBaloon > 4)
             {
@@ -206,20 +204,24 @@
             Baloons--;
             Shoots++;
 
-            tempCoordinates.X = coordinate.X - 1;
-            tempCoordinates.Y = coordinate.Y;
+            CheckNeighborsCells(coordinate, currentBaloon);
+            LandFlyingBaloons();
+        }
 
-            for (int i = 0; i < 4; i++)
+        private void CheckNeighborsCells(Coordinates coordinate, int currentBaloon)
+        {
+            Coordinates tempCoordinates = new Coordinates();
+
+            for (int direction = 0; direction < 4; direction++)
             {
-                while (currentBaloon == FindPosition(tempCoordinates))
+                switch (direction)
                 {
-                    AddBaloon(tempCoordinates, 0);
-                    Baloons--;
-                    tempCoordinates.X--;
-                }
-                //1
-                switch (i)
-                {
+                    case 0:
+                        {
+                            tempCoordinates.X = coordinate.X - 1;
+                            tempCoordinates.Y = coordinate.Y;
+                            break;
+                        }
                     case 1:
                         {
                             tempCoordinates.X = coordinate.X + 1;
@@ -241,9 +243,14 @@
                     default:
                         break;
                 }
-            }
 
-            LandFlyingBaloons();
+                while (currentBaloon == FindPosition(tempCoordinates))
+                {
+                    AddBaloon(tempCoordinates, 0);
+                    Baloons--;
+                    tempCoordinates.X--;
+                }
+            }
         }
 
         /// <summary>

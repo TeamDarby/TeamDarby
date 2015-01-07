@@ -18,7 +18,6 @@ namespace BalloonPops
         @"Welcome to “Balloons Pops” game. Please try to pop the balloons.
         Enter the row and column below separated by space. Example:'2 3'";
 
-
         /// <summary>
         /// Informational message for game commands.
         /// </summary>

@@ -8,13 +8,33 @@ namespace BalloonPops
 {
     using System;
 
+    /// <summary>
+    /// Represent player of the game
+    /// </summary>
     public class Player : IPlayer, IComparable
     {
+        /// <summary>
+        /// Minimal score value.
+        /// </summary>
+        private const int MinScore = 0;
+
+        /// <summary>
+        /// Maximal score value.
+        /// </summary>
+        private const int MaxScore = 50;
+
+        /// <summary>
+        /// Keep player name.
+        /// </summary>
         private string name;
+
+        /// <summary>
+        /// Keep player score.
+        /// </summary>
         private int score;
 
         /// <summary>
-        /// Initializes a new instance of the player with name and score
+        /// Initializes a new instance of the <see cref="Player"/> class.
         /// </summary>
         /// <param name="name">The name of the player</param>
         /// <param name="score">The score of the player</param>
@@ -25,13 +45,13 @@ namespace BalloonPops
         }
 
         /// <summary>
-        /// Property of field name
+        /// Gets name of the player.
         /// </summary>
         public string Name
         {
             get
             {
-                return name;
+                return this.name;
             }
 
             private set
@@ -48,24 +68,22 @@ namespace BalloonPops
         }
 
         /// <summary>
-        /// Property of the field score
+        /// Gets player score.
         /// </summary>
         public int Score
         {
             get
             {
-                return score;
+                return this.score;
             }
 
             private set
             {
-                if (value < 0)
+                if (value < MinScore || value > 50)
                 {
-                    throw new ArgumentException("Score cannot be a negative number!");
-                }
-                if (value >= int.MaxValue)
-                {
-                    throw new ArgumentOutOfRangeException("Score cannot be a so big number!");
+                    throw new ArgumentOutOfRangeException(
+                        "score", 
+                        string.Format("Score must be in range [{0} - {1}]!", MinScore, MaxScore));
                 }
                 else
                 {
@@ -75,7 +93,7 @@ namespace BalloonPops
         }
 
         /// <summary>
-        /// This method for the < operator verify the score of two players
+        /// This method for override less operator to verify the score of two players
         /// </summary>
         /// <param name="firstPlayer">The score of the player with best result</param>
         /// <param name="secondPlayer">The score of the current player</param>
@@ -105,7 +123,7 @@ namespace BalloonPops
         /// </summary>
         /// <param name="firstPlayer">The score of the player with best result</param>
         /// <param name="secondPlayer">The score of the current player</param>
-        /// <returns></returns>
+        /// <returns>Returns 0 or 1 depends of which player has better score.</returns>
         public int Compare(Player firstPlayer, Player secondPlayer)
         {
             return firstPlayer.Score.CompareTo(secondPlayer.Score);
@@ -122,12 +140,12 @@ namespace BalloonPops
         public int CompareTo(object obj)
         {
             Player player = obj as Player;
-            if (player.Score < Score)
+            if (player.Score < this.Score)
             {
                 return 1;
             }
 
-            if (player.Score > Score)
+            if (player.Score > this.Score)
             {
                 return -1;
             }

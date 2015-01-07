@@ -27,9 +27,9 @@ namespace BalloonPops
         /// <summary>
         /// Path and name of the file where are kept the top players name and result
         /// </summary>
-        //private const string Path = @"..\..\TopScores.txt";
-        private const string Path = @"..\..\TopScoresTests.txt";
+        private const string Path = @"..\..\TopScores.txt";
 
+        // private const string Path = @"..\..\TopScoresTests.txt";
         #endregion
 
         #region Fields
