@@ -1,4 +1,4 @@
-﻿//-----------------------------------------------------------------------
+﻿ //-----------------------------------------------------------------------
 // <copyright file="BalloonPops.cs" company="SoftUni">
 //  Copyright (c) 2015 SoftUni. All rights reserved.
 // </copyright>
@@ -28,7 +28,9 @@ namespace BalloonPops
         Command command;
         bool isCoordinates;
 
-
+        /// <summary>
+        /// The constructor for the fields
+        /// </summary>
         public BalloonPops()
         {
             this.scoreManager = new ScoreManager();
@@ -38,6 +40,9 @@ namespace BalloonPops
             this.isCoordinates = false;
         }
 
+        /// <summary>
+        /// This method starts the game and call all the methods needed
+        /// </summary>
         public void Play()
         {
             Initialize();
@@ -45,7 +50,9 @@ namespace BalloonPops
             End();
         }
 
-
+        /// <summary>
+        /// Initial messages and printing the new gameboard
+        /// </summary>
         private void Initialize()
         {
             Console.WriteLine(Message.Welcome);
@@ -54,6 +61,9 @@ namespace BalloonPops
             gameBoard.PrintGameBoard();
         }
 
+        /// <summary>
+        /// This method holds the play rules and run the moves of the player
+        /// </summary>
         private void Run()
         {
             while (gameBoard.Baloons > 0)
@@ -94,6 +104,9 @@ namespace BalloonPops
             }
         }
 
+        /// <summary>
+        /// When all the ballons are popped, the result will be saved in the score list
+        /// </summary>
         private void End()
         {
             int result = gameBoard.Shoots;

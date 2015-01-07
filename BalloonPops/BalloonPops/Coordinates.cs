@@ -22,14 +22,7 @@
 
             set
             {
-                if (value >= 0 && value <= 9)
-                {
-                    this.x = value;
-                }
-                else
-                {
-                    //throw new ArgumentOutOfRangeException("X", "Wrong X coordinate value");
-                }
+                this.x = value;
             }
         }
 
@@ -45,14 +38,7 @@
 
             set
             {
-                if (value >= 0 && value <= 4)
-                {
-                    this.y = value;
-                }
-                else
-                {
-                    //throw new ArgumentOutOfRangeException("Wrong Y coordinate value");
-                }
+                this.y = value;
             }
         }
 
@@ -70,7 +56,7 @@
 
             if (substrings.Count<string>() != 2)
             {
-                Console.WriteLine("Invalid move or command!");
+                Console.WriteLine(Message.IllegalMove);
                 return false;
             }
 
@@ -90,7 +76,7 @@
             }
             else
             {
-                Console.WriteLine("Invalid move or command!");
+                Console.WriteLine(Message.IllegalMove);
                 return false;
             }
 
@@ -110,7 +96,7 @@
             }
             else
             {
-                Console.WriteLine("Invalid move or command!");
+                Console.WriteLine(Message.IllegalMove);
                 return false;
             }
 

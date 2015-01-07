@@ -31,6 +31,9 @@
 
         #region Properties
 
+        /// <summary>
+        /// Property of the shoots field
+        /// </summary>
         public int Shoots
         {
             get
@@ -49,6 +52,9 @@
             }
         }
 
+        /// <summary>
+        /// Property of the balloons field
+        /// </summary>
         public int Baloons
         {
             get
@@ -69,7 +75,9 @@
 
         #endregion
 
-
+        /// <summary>
+        /// This method generates the gameboard with random values for the balloons
+        /// </summary>
         public void GenerateGameBoard()
         {
             Random random = new Random();
@@ -137,6 +145,12 @@
             Console.WriteLine(board);
         }
 
+        /// <summary>
+        /// This method convert the gameboard to a string that could be printed to the screen(on the page).
+        /// It prints numbers for the columns and the rows, empty spaces between the baloons and 
+        /// paste - when a ballon is missing and it is popped
+        /// </summary>
+        /// <returns>It returns the gameboard as a string</returns>
         public string GameBoardsToString()
         {
             StringBuilder board = new StringBuilder();
@@ -171,7 +185,7 @@
 
             return board.ToString();
         }
-        
+
         /// <summary>
         /// This method pops the selected ballons and clean them from the board
         /// </summary>
@@ -207,23 +221,23 @@
                 switch (i)
                 {
                     case 1:
-                    {
-                        tempCoordinates.X = coordinate.X + 1;
-                        tempCoordinates.Y = coordinate.Y;
-                        break;
-                    }
+                        {
+                            tempCoordinates.X = coordinate.X + 1;
+                            tempCoordinates.Y = coordinate.Y;
+                            break;
+                        }
                     case 2:
-                    {
-                        tempCoordinates.X = coordinate.X;
-                        tempCoordinates.Y = coordinate.Y - 1;
-                        break;
-                    }
+                        {
+                            tempCoordinates.X = coordinate.X;
+                            tempCoordinates.Y = coordinate.Y - 1;
+                            break;
+                        }
                     case 3:
-                    {
-                        tempCoordinates.X = coordinate.X;
-                        tempCoordinates.Y = coordinate.Y + 1;
-                        break;
-                    }
+                        {
+                            tempCoordinates.X = coordinate.X;
+                            tempCoordinates.Y = coordinate.Y + 1;
+                            break;
+                        }
                     default:
                         break;
                 }
@@ -232,6 +246,11 @@
             LandFlyingBaloons();
         }
 
+        /// <summary>
+        /// This method find the initial coordinates, takes the new coordintates and position the player location there.
+        /// </summary>
+        /// <param name="coordinate">Initial coordinates</param>
+        /// <param name="coordinate1">The new coordinates</param>
         private void Swap(Coordinates coordinate, Coordinates coordinate1)
         {
             int tmp = FindPosition(coordinate);
@@ -239,6 +258,10 @@
             AddBaloon(coordinate1, tmp);
         }
 
+        /// <summary>
+        /// This method moves through the rows and the columns, takes the coordinates of the popped balloons and 
+        /// land the balloons from the top rows to the empty positions.
+        /// </summary>
         private void LandFlyingBaloons()
         {
             Coordinates coordinate = new Coordinates();
