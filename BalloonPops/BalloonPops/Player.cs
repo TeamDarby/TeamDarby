@@ -14,7 +14,7 @@ namespace BalloonPops
         private int score;
 
         /// <summary>
-        /// 
+        /// Initializes a new instance of the player with name and score
         /// </summary>
         /// <param name="name">The name of the player</param>
         /// <param name="score">The score of the player</param>
