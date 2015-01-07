@@ -27,7 +27,8 @@ namespace BalloonPops
         /// <summary>
         /// Path and name of the file where are kept the top players name and result
         /// </summary>
-        private const string Path = @"..\..\TopScores.txt";
+        //private const string Path = @"..\..\TopScores.txt";
+        private const string Path = @"..\..\TopScoresTests.txt";
 
         #endregion
 
@@ -77,7 +78,7 @@ namespace BalloonPops
         {
             bool isTopScore = true;
 
-            if (this.topPlayers.Count >= TopPlayersCount && this.topPlayers[TopPlayersCount - 1].Score > score)
+            if (this.topPlayers.Count >= TopPlayersCount && this.topPlayers[TopPlayersCount - 1].Score < score)
             {
                 isTopScore = false;
             }
