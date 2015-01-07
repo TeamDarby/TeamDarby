@@ -1,0 +1,356 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BalloonPops</name>
+    </assembly>
+    <members>
+        <member name="T:BalloonPops.BalloonPops">
+            <summary>
+            Includes engine for the game Balloon Pops
+            </summary>
+        </member>
+        <member name="M:BalloonPops.BalloonPops.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:BalloonPops.BalloonPops"/> class.
+            </summary>
+        </member>
+        <member name="M:BalloonPops.BalloonPops.Play">
+            <summary>
+            This method starts the game and call all the methods needed
+            </summary>
+        </member>
+        <member name="M:BalloonPops.BalloonPops.Initialize">
+            <summary>
+            Initial messages and printing the new game board
+            </summary>
+        </member>
+        <member name="M:BalloonPops.BalloonPops.Run">
+            <summary>
+            This method holds the play rules and run the moves of the player
+            </summary>
+        </member>
+        <member name="M:BalloonPops.BalloonPops.End">
+            <summary>
+            When all the balloons are popped, the result will be saved in the score list
+            </summary>
+        </member>
+        <member name="T:BalloonPops.BalloonPopsGame">
+            <summary>
+            Represent the game "Balloon Pops".
+            </summary>
+        </member>
+        <member name="M:BalloonPops.BalloonPopsGame.Main">
+            <summary>
+            Star playing the game "Balloon Pops".
+            </summary>
+        </member>
+        <member name="M:BalloonPops.Command.TryParse(System.String,BalloonPops.Command@)">
+            <summary>
+            This method verify the command from the game with the selected command from the player.
+            </summary>
+            <param name="input">The initial command selected from the player</param>
+            <param name="result">The commands that could be selected from the player</param>
+            <returns>Returns true if correct command is selected.
+            Returns false ifwrong command is selected.</returns>
+        </member>
+        <member name="P:BalloonPops.Command.Name">
+            <summary>
+            Property of the field name
+            </summary>
+        </member>
+        <member name="M:BalloonPops.Coordinates.TryParse(System.String,BalloonPops.Coordinates@)">
+            <summary>
+            Method that check the coordinates and whether there are existing coordinates
+            </summary>
+            <param name="input">The input string with elements</param>
+            <param name="result">The coordinates where the player is staying</param>
+            <returns></returns>
+        </member>
+        <member name="P:BalloonPops.Coordinates.X">
+            <summary>
+            Property for the Y coordinate
+            </summary>
+        </member>
+        <member name="P:BalloonPops.Coordinates.Y">
+            <summary>
+            Property for the Y coordinate
+            </summary>
+        </member>
+        <member name="M:BalloonPops.GameBoard.GenerateGameBoard">
+            <summary>
+            This method generates the gameboard with random values for the balloons
+            </summary>
+        </member>
+        <member name="M:BalloonPops.GameBoard.NewGame">
+            <summary>
+            Method that start the game again and position all elements on the board
+            </summary>
+        </member>
+        <member name="M:BalloonPops.GameBoard.AddBaloon(BalloonPops.Coordinates,System.Int32)">
+            <summary>
+            This method add new baloons to the gameboard on the selected coordinates
+            </summary>
+            <param name="coordinate">The current coordinates of the player</param>
+            <param name="value"></param>
+        </member>
+        <member name="M:BalloonPops.GameBoard.FindPosition(BalloonPops.Coordinates)">
+            <summary>
+            This method gets the current coordinates
+            </summary>
+            <param name="coordinate">The current coordinates</param>
+            <returns>Returns the current position of the player on the gameboard</returns>
+        </member>
+        <member name="M:BalloonPops.GameBoard.PrintGameBoard">
+            <summary>
+            Print the gameboard on the screen
+            </summary>
+        </member>
+        <member name="M:BalloonPops.GameBoard.GameBoardsToString">
+            <summary>
+            This method convert the gameboard to a string that could be printed to the screen(on the page).
+            It prints numbers for the columns and the rows, empty spaces between the baloons and 
+            paste - when a ballon is missing and it is popped
+            </summary>
+            <returns>It returns the gameboard as a string</returns>
+        </member>
+        <member name="M:BalloonPops.GameBoard.Shoot(BalloonPops.Coordinates)">
+            <summary>
+            This method pops the selected ballons and clean them from the board
+            </summary>
+            <param name="coordinate">The current coordinates on the player</param>
+        </member>
+        <member name="M:BalloonPops.GameBoard.Swap(BalloonPops.Coordinates,BalloonPops.Coordinates)">
+            <summary>
+            This method find the initial coordinates, takes the new coordintates and position the player location there.
+            </summary>
+            <param name="coordinate">Initial coordinates</param>
+            <param name="coordinate1">The new coordinates</param>
+        </member>
+        <member name="M:BalloonPops.GameBoard.LandFlyingBaloons">
+            <summary>
+            This method moves through the rows and the columns, takes the coordinates of the popped balloons and 
+            land the balloons from the top rows to the empty positions.
+            </summary>
+        </member>
+        <member name="M:BalloonPops.GameBoard.ReadInput(System.Boolean@,BalloonPops.Coordinates@,BalloonPops.Command@)">
+            <summary>
+            This method takes the input data where the player want to be positioned
+            </summary>
+            <param name="IsCoordinates">Verify whether the coordinates are correct</param>
+            <param name="coordinates">The position on the player</param>
+            <param name="command">The selected command</param>
+            <returns>Returns true if the coordinates are correct. Return false if the coordinates are not correct</returns>
+        </member>
+        <member name="P:BalloonPops.GameBoard.Shoots">
+            <summary>
+            Property of the shoots field
+            </summary>
+        </member>
+        <member name="P:BalloonPops.GameBoard.Baloons">
+            <summary>
+            Property of the balloons field
+            </summary>
+        </member>
+        <member name="T:BalloonPops.IPlayer">
+            <summary>
+            Interface for Player
+            </summary>
+        </member>
+        <member name="P:BalloonPops.IPlayer.Name">
+            <summary>
+            Gets player name
+            </summary>
+        </member>
+        <member name="P:BalloonPops.IPlayer.Score">
+            <summary>
+            Gets player score
+            </summary>
+        </member>
+        <member name="T:BalloonPops.Message">
+            <summary>
+            Display all game messages.
+            </summary>
+        </member>
+        <member name="F:BalloonPops.Message.Welcome">
+            <summary>
+            Welcome message.
+            </summary>
+        </member>
+        <member name="F:BalloonPops.Message.Info">
+            <summary>
+            Informational message for game commands.
+            </summary>
+        </member>
+        <member name="F:BalloonPops.Message.IllegalMove">
+            <summary>
+            Message for illegal move.
+            </summary>
+        </member>
+        <member name="F:BalloonPops.Message.EnterValues">
+            <summary>
+            Message to player to enter row and column value.
+            </summary>
+        </member>
+        <member name="F:BalloonPops.Message.WrongInput">
+            <summary>
+            Message for wrong input.
+            </summary>
+        </member>
+        <member name="F:BalloonPops.Message.Success">
+            <summary>
+            Message that inform player for successfully entering in top players list.
+            </summary>
+        </member>
+        <member name="F:BalloonPops.Message.EnterName">
+            <summary>
+            Message to player to enter his name for top players list.
+            </summary>
+        </member>
+        <member name="F:BalloonPops.Message.NotBestScore">
+            <summary>
+            Message that wish luck.
+            </summary>
+        </member>
+        <member name="T:BalloonPops.Player">
+            <summary>
+            Represent player of the game
+            </summary>
+        </member>
+        <member name="F:BalloonPops.Player.MinScore">
+            <summary>
+            Minimal score value.
+            </summary>
+        </member>
+        <member name="F:BalloonPops.Player.MaxScore">
+            <summary>
+            Maximal score value.
+            </summary>
+        </member>
+        <member name="F:BalloonPops.Player.name">
+            <summary>
+            Keep player name.
+            </summary>
+        </member>
+        <member name="F:BalloonPops.Player.score">
+            <summary>
+            Keep player score.
+            </summary>
+        </member>
+        <member name="M:BalloonPops.Player.#ctor(System.String,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:BalloonPops.Player"/> class.
+            </summary>
+            <param name="name">The name of the player</param>
+            <param name="score">The score of the player</param>
+        </member>
+        <member name="M:BalloonPops.Player.op_LessThan(BalloonPops.Player,BalloonPops.Player)">
+            <summary>
+            This method for override less operator to verify the score of two players
+            </summary>
+            <param name="firstPlayer">The score of the player with best result</param>
+            <param name="secondPlayer">The score of the current player</param>
+            <returns>Return the player with lower score</returns>
+        </member>
+        <member name="M:BalloonPops.Player.op_GreaterThan(BalloonPops.Player,BalloonPops.Player)">
+            <summary>
+            This method for the > operator verify the score of two players
+            </summary>
+            <param name="firstPlayer">The score of the player with best result</param>
+            <param name="secondPlayer">The score of the current player</param>
+            <returns>Return the player with the best score</returns>
+        </member>
+        <member name="M:BalloonPops.Player.Compare(BalloonPops.Player,BalloonPops.Player)">
+            <summary>
+            This method set the logic for the Compare operator and compares the scores of the players
+            </summary>
+            <param name="firstPlayer">The score of the player with best result</param>
+            <param name="secondPlayer">The score of the current player</param>
+            <returns>Returns 0 or 1 depends of which player has better score.</returns>
+        </member>
+        <member name="M:BalloonPops.Player.CompareTo(System.Object)">
+            <summary>
+            This method set the logic for the CompareTo operator and compares the scores of the players
+            </summary>
+            <param name="obj">Takes the player as an object and takes its score</param>
+            <returns>It returns 1 if the score of the current player is higher than the score of the other player.
+            It returns -1 if the score of the current player is less than the score of the other player.
+            It returns 0 if the score of the current player is equal to the score of the other player.
+            </returns>
+        </member>
+        <member name="P:BalloonPops.Player.Name">
+            <summary>
+            Gets name of the player.
+            </summary>
+        </member>
+        <member name="P:BalloonPops.Player.Score">
+            <summary>
+            Gets player score.
+            </summary>
+        </member>
+        <member name="T:BalloonPops.ScoreManager">
+            <summary>
+            Responsible for managing top results.
+            </summary>
+        </member>
+        <member name="F:BalloonPops.ScoreManager.TopPlayersCount">
+            <summary>
+            Represent allowed numbers of top players
+            </summary>
+        </member>
+        <member name="F:BalloonPops.ScoreManager.Path">
+            <summary>
+            Path and name of the file where are kept the top players name and result
+            </summary>
+        </member>
+        <member name="F:BalloonPops.ScoreManager.topPlayers">
+            <summary>
+            List with all top players name and score.
+            </summary>
+        </member>
+        <member name="M:BalloonPops.ScoreManager.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:BalloonPops.ScoreManager"/> class.
+            </summary>
+        </member>
+        <member name="M:BalloonPops.ScoreManager.AddBestPlayer(BalloonPops.IPlayer)">
+            <summary>
+            Add new best player to top score list.
+            </summary>
+            <param name="player">Instance of <see cref="T:BalloonPops.Player"/> class.</param>
+        </member>
+        <member name="M:BalloonPops.ScoreManager.IsTopScore(System.Int32)">
+            <summary>
+            Check whether given score meets the criteria for a score in the top 5.
+            </summary>
+            <param name="score">Given score to check.</param>
+            <returns>True or false depending on the given score.</returns>
+        </member>
+        <member name="M:BalloonPops.ScoreManager.PrintScoreList">
+            <summary>
+            Prints information from the list with the top scores on the console.
+            </summary>
+        </member>
+        <member name="M:BalloonPops.ScoreManager.AddToTopScoreList(BalloonPops.IPlayer)">
+            <summary>
+            Add new player record to top score records.
+            </summary>
+            <param name="player">Instance of <see cref="T:BalloonPops.Player"/> class.</param>
+        </member>
+        <member name="M:BalloonPops.ScoreManager.SaveTopScoreList">
+            <summary>
+            Save data from top score list into a txt file.
+            </summary>
+        </member>
+        <member name="M:BalloonPops.ScoreManager.LoadTopScore">
+            <summary>
+            Gets all records from txt file and push them all to a list.
+            </summary>
+        </member>
+        <member name="M:BalloonPops.ScoreManager.TopScoreListToString">
+            <summary>
+            Converts data from top score list to a <see cref="T:System.String"/>.
+            </summary>
+            <returns>String representation of top score list data.</returns>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<HelpKI>
+  <HelpKINode Title="AddBestPlayer method" Url="html/254f7bcb-4a5e-1717-d33c-e487c1d2cfb1.htm" />
+  <HelpKINode Title="BalloonPops class">
+    <HelpKINode Title="BalloonPops Class" Url="html/fdbd64f9-bb54-b4d1-c0fa-91d531ac959b.htm" />
+    <HelpKINode Title="BalloonPops Members" Url="html/d2f68c72-4475-6f54-474b-7c99dad3b625.htm" />
+    <HelpKINode Title="about BalloonPops class" Url="html/fdbd64f9-bb54-b4d1-c0fa-91d531ac959b.htm" />
+    <HelpKINode Title="all members" Url="html/d2f68c72-4475-6f54-474b-7c99dad3b625.htm" />
+    <HelpKINode Title="constructor" Url="html/0ad8b489-ca33-333d-67a6-44e4e8b74323.htm" />
+    <HelpKINode Title="methods" Url="html/b74d291f-43d0-f7a4-3397-33157fb5804d.htm" />
+  </HelpKINode>
+  <HelpKINode Title="BalloonPops namespace" Url="html/17d5be2c-f385-6cf9-bfce-fa67815ed95d.htm" />
+  <HelpKINode Title="BalloonPops.BalloonPops class">
+    <HelpKINode Title="BalloonPops Class" Url="html/fdbd64f9-bb54-b4d1-c0fa-91d531ac959b.htm" />
+    <HelpKINode Title="BalloonPops Members" Url="html/d2f68c72-4475-6f54-474b-7c99dad3b625.htm" />
+  </HelpKINode>
+  <HelpKINode Title="BalloonPops.BalloonPops constructor" Url="html/0ad8b489-ca33-333d-67a6-44e4e8b74323.htm" />
+  <HelpKINode Title="BalloonPops.BalloonPopsGame class">
+    <HelpKINode Title="BalloonPopsGame Class" Url="html/e1b9fe1f-b53b-8d97-d86c-752beb95c272.htm" />
+    <HelpKINode Title="BalloonPopsGame Members" Url="html/24ae0a27-abb2-7bcf-7ac3-7c0d885205b1.htm" />
+  </HelpKINode>
+  <HelpKINode Title="BalloonPops.Command class">
+    <HelpKINode Title="Command Class" Url="html/e0ca8c6b-3619-8236-2424-1ab01399ba30.htm" />
+    <HelpKINode Title="Command Members" Url="html/264404a9-17cd-46c4-8f44-49cb8f2b5dad.htm" />
+  </HelpKINode>
+  <HelpKINode Title="BalloonPops.Coordinates class">
+    <HelpKINode Title="Coordinates Class" Url="html/dbfd8876-1f7b-1707-8e4f-0554171415eb.htm" />
+    <HelpKINode Title="Coordinates Members" Url="html/2b215621-c62b-0feb-c815-bf5caed1618c.htm" />
+  </HelpKINode>
+  <HelpKINode Title="BalloonPops.IPlayer interface">
+    <HelpKINode Title="IPlayer Interface" Url="html/ff0f7199-0904-0ae6-8840-17f6fad45004.htm" />
+    <HelpKINode Title="IPlayer Members" Url="html/0cc07285-f837-209c-e607-765c48a68d99.htm" />
+  </HelpKINode>
+  <HelpKINode Title="BalloonPops.Message class">
+    <HelpKINode Title="Message Class" Url="html/b70368ce-ad15-e2a5-0f07-936683518527.htm" />
+    <HelpKINode Title="Message Members" Url="html/93622707-cc92-f935-ec62-96466b3323f0.htm" />
+  </HelpKINode>
+  <HelpKINode Title="BalloonPops.Play method" Url="html/a756a545-41fd-5432-a702-224a0daa2576.htm" />
+  <HelpKINode Title="BalloonPops.Player class">
+    <HelpKINode Title="Player Class" Url="html/417af552-cf47-6d08-eec9-f7d0b113df98.htm" />
+    <HelpKINode Title="Player Members" Url="html/4b3a0915-2066-bca4-8e75-061e5d3ad6c3.htm" />
+  </HelpKINode>
+  <HelpKINode Title="BalloonPops.ScoreManager class">
+    <HelpKINode Title="ScoreManager Class" Url="html/36e1f716-225c-dfc4-f5f1-318c870b64c9.htm" />
+    <HelpKINode Title="ScoreManager Members" Url="html/e1b32264-c53e-715e-52f6-efdc3b466e8a.htm" />
+  </HelpKINode>
+  <HelpKINode Title="BalloonPopsGame class">
+    <HelpKINode Title="BalloonPopsGame Class" Url="html/e1b9fe1f-b53b-8d97-d86c-752beb95c272.htm" />
+    <HelpKINode Title="BalloonPopsGame Members" Url="html/24ae0a27-abb2-7bcf-7ac3-7c0d885205b1.htm" />
+    <HelpKINode Title="about BalloonPopsGame class" Url="html/e1b9fe1f-b53b-8d97-d86c-752beb95c272.htm" />
+    <HelpKINode Title="all members" Url="html/24ae0a27-abb2-7bcf-7ac3-7c0d885205b1.htm" />
+    <HelpKINode Title="methods" Url="html/ff95e424-611c-b905-75fd-3b860bd7ea31.htm" />
+  </HelpKINode>
+  <HelpKINode Title="BalloonPopsGame.Main method" Url="html/42e86519-ffba-1ed8-9557-df88f7ccf655.htm" />
+  <HelpKINode Title="Command class">
+    <HelpKINode Title="Command Class" Url="html/e0ca8c6b-3619-8236-2424-1ab01399ba30.htm" />
+    <HelpKINode Title="Command Members" Url="html/264404a9-17cd-46c4-8f44-49cb8f2b5dad.htm" />
+    <HelpKINode Title="about Command class" Url="html/e0ca8c6b-3619-8236-2424-1ab01399ba30.htm" />
+    <HelpKINode Title="all members" Url="html/264404a9-17cd-46c4-8f44-49cb8f2b5dad.htm" />
+    <HelpKINode Title="constructor" Url="html/362582a2-37bc-1ec1-7f38-4058aaeefbbd.htm" />
+    <HelpKINode Title="methods" Url="html/fe493803-f543-ec82-c743-c1b2586ca428.htm" />
+    <HelpKINode Title="properties" Url="html/b3eb6f61-4a9a-a089-0bef-7050fb58008a.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Command.Command constructor" Url="html/362582a2-37bc-1ec1-7f38-4058aaeefbbd.htm" />
+  <HelpKINode Title="Command.Name property" Url="html/29074433-564a-931b-a408-670d2c5545e6.htm" />
+  <HelpKINode Title="Command.TryParse method" Url="html/8f2494cf-813c-f0d8-aa22-d8df148721f6.htm" />
+  <HelpKINode Title="Compare method" Url="html/2e686f4d-3708-4af3-ed0e-88adfc272537.htm" />
+  <HelpKINode Title="CompareTo method" Url="html/0d925962-f7f5-e03c-cacc-a13c05587c3b.htm" />
+  <HelpKINode Title="Coordinates class">
+    <HelpKINode Title="Coordinates Class" Url="html/dbfd8876-1f7b-1707-8e4f-0554171415eb.htm" />
+    <HelpKINode Title="Coordinates Members" Url="html/2b215621-c62b-0feb-c815-bf5caed1618c.htm" />
+    <HelpKINode Title="about Coordinates class" Url="html/dbfd8876-1f7b-1707-8e4f-0554171415eb.htm" />
+    <HelpKINode Title="all members" Url="html/2b215621-c62b-0feb-c815-bf5caed1618c.htm" />
+    <HelpKINode Title="constructor" Url="html/85eda20e-5fff-520b-f03c-17ff1a46484e.htm" />
+    <HelpKINode Title="methods" Url="html/c1a02bf0-9c8b-592c-eaff-ee9963c65624.htm" />
+    <HelpKINode Title="properties" Url="html/65f488fd-9126-aae0-8536-b0c1e113b680.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Coordinates.Coordinates constructor" Url="html/85eda20e-5fff-520b-f03c-17ff1a46484e.htm" />
+  <HelpKINode Title="Coordinates.TryParse method" Url="html/18b78c04-eb94-f99b-6a54-a5082bb26e83.htm" />
+  <HelpKINode Title="Coordinates.X property" Url="html/2855cb67-3fa7-11b1-f408-b6152e4c1ffa.htm" />
+  <HelpKINode Title="Coordinates.Y property" Url="html/745e68cd-c5b3-0a82-b862-af92bde599e2.htm" />
+  <HelpKINode Title="EnterName field" Url="html/796d89ec-4d3b-b448-6636-f7138213417d.htm" />
+  <HelpKINode Title="EnterValues field" Url="html/e1a951c5-1fd7-63d5-85ea-d8a916eb1851.htm" />
+  <HelpKINode Title="GreaterThan operator" Url="html/7f81c0df-eb6d-8b4a-5aca-34e2d5e6c78c.htm" />
+  <HelpKINode Title="IllegalMove field" Url="html/78245dff-28e0-85d7-1eaf-1c3d4dd76873.htm" />
+  <HelpKINode Title="Info field" Url="html/cd09bea1-26ba-45cf-9955-e6c2b686fb60.htm" />
+  <HelpKINode Title="IPlayer interface">
+    <HelpKINode Title="IPlayer Interface" Url="html/ff0f7199-0904-0ae6-8840-17f6fad45004.htm" />
+    <HelpKINode Title="IPlayer Members" Url="html/0cc07285-f837-209c-e607-765c48a68d99.htm" />
+    <HelpKINode Title="about IPlayer interface" Url="html/ff0f7199-0904-0ae6-8840-17f6fad45004.htm" />
+    <HelpKINode Title="all members" Url="html/0cc07285-f837-209c-e607-765c48a68d99.htm" />
+    <HelpKINode Title="properties" Url="html/e790a78b-8ea9-c3ef-2e02-820e21cfd867.htm" />
+  </HelpKINode>
+  <HelpKINode Title="IPlayer.Name property" Url="html/f4802c1f-1142-233b-d10f-d67c2b17a795.htm" />
+  <HelpKINode Title="IPlayer.Score property" Url="html/a131b755-7bd2-b01a-3f06-b4e74b455233.htm" />
+  <HelpKINode Title="IsTopScore method" Url="html/1696d3ed-571e-3941-bbea-6a52eefe2f0c.htm" />
+  <HelpKINode Title="LessThan operator" Url="html/d46c4486-f940-d104-c2da-1e3d3e762fdd.htm" />
+  <HelpKINode Title="Main method" Url="html/42e86519-ffba-1ed8-9557-df88f7ccf655.htm" />
+  <HelpKINode Title="Message class">
+    <HelpKINode Title="Message Class" Url="html/b70368ce-ad15-e2a5-0f07-936683518527.htm" />
+    <HelpKINode Title="Message Members" Url="html/93622707-cc92-f935-ec62-96466b3323f0.htm" />
+    <HelpKINode Title="about Message class" Url="html/b70368ce-ad15-e2a5-0f07-936683518527.htm" />
+    <HelpKINode Title="all members" Url="html/93622707-cc92-f935-ec62-96466b3323f0.htm" />
+    <HelpKINode Title="fields" Url="html/40a3f50b-36d3-b20a-430b-314aa02457a8.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Message.EnterName field" Url="html/796d89ec-4d3b-b448-6636-f7138213417d.htm" />
+  <HelpKINode Title="Message.EnterValues field" Url="html/e1a951c5-1fd7-63d5-85ea-d8a916eb1851.htm" />
+  <HelpKINode Title="Message.IllegalMove field" Url="html/78245dff-28e0-85d7-1eaf-1c3d4dd76873.htm" />
+  <HelpKINode Title="Message.Info field" Url="html/cd09bea1-26ba-45cf-9955-e6c2b686fb60.htm" />
+  <HelpKINode Title="Message.NotBestScore field" Url="html/637a2cb9-88f5-7534-2537-0644b8701b0c.htm" />
+  <HelpKINode Title="Message.Success field" Url="html/5252b8a9-3f78-103b-6f73-f70be26dd88f.htm" />
+  <HelpKINode Title="Message.Welcome field" Url="html/46ba6ec6-a665-6b9a-b637-2822261abf98.htm" />
+  <HelpKINode Title="Message.WrongInput field" Url="html/3c58e8f6-50d9-e98c-9193-d2f47b665427.htm" />
+  <HelpKINode Title="Name property">
+    <HelpKINode Title="Name Property " Url="html/f4802c1f-1142-233b-d10f-d67c2b17a795.htm" />
+    <HelpKINode Title="Name Property " Url="html/29074433-564a-931b-a408-670d2c5545e6.htm" />
+    <HelpKINode Title="Name Property " Url="html/24bd99a4-42ac-f41c-cafe-33892e835557.htm" />
+  </HelpKINode>
+  <HelpKINode Title="NotBestScore field" Url="html/637a2cb9-88f5-7534-2537-0644b8701b0c.htm" />
+  <HelpKINode Title="Play method" Url="html/a756a545-41fd-5432-a702-224a0daa2576.htm" />
+  <HelpKINode Title="Player class">
+    <HelpKINode Title="Player Class" Url="html/417af552-cf47-6d08-eec9-f7d0b113df98.htm" />
+    <HelpKINode Title="Player Members" Url="html/4b3a0915-2066-bca4-8e75-061e5d3ad6c3.htm" />
+    <HelpKINode Title="about Player class" Url="html/417af552-cf47-6d08-eec9-f7d0b113df98.htm" />
+    <HelpKINode Title="all members" Url="html/4b3a0915-2066-bca4-8e75-061e5d3ad6c3.htm" />
+    <HelpKINode Title="constructor" Url="html/e032dde3-755e-0413-c4bc-d6122ec99acc.htm" />
+    <HelpKINode Title="methods" Url="html/480fe96a-412a-3939-11b9-e99825fcef18.htm" />
+    <HelpKINode Title="operators" Url="html/8cfdaf56-9642-b9f1-a73e-24afbeb60ad6.htm" />
+    <HelpKINode Title="properties" Url="html/86a1d97f-dd17-1bad-1b53-daaad8978932.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Player.Compare method" Url="html/2e686f4d-3708-4af3-ed0e-88adfc272537.htm" />
+  <HelpKINode Title="Player.CompareTo method" Url="html/0d925962-f7f5-e03c-cacc-a13c05587c3b.htm" />
+  <HelpKINode Title="Player.GreaterThan operator" Url="html/7f81c0df-eb6d-8b4a-5aca-34e2d5e6c78c.htm" />
+  <HelpKINode Title="Player.LessThan operator" Url="html/d46c4486-f940-d104-c2da-1e3d3e762fdd.htm" />
+  <HelpKINode Title="Player.Name property" Url="html/24bd99a4-42ac-f41c-cafe-33892e835557.htm" />
+  <HelpKINode Title="Player.Player constructor" Url="html/e032dde3-755e-0413-c4bc-d6122ec99acc.htm" />
+  <HelpKINode Title="Player.Score property" Url="html/8d36d269-3937-ae85-db19-737fea9e4fdd.htm" />
+  <HelpKINode Title="PrintScoreList method" Url="html/821e9245-1b4d-9c81-939e-605047b42a22.htm" />
+  <HelpKINode Title="Score property">
+    <HelpKINode Title="Score Property " Url="html/8d36d269-3937-ae85-db19-737fea9e4fdd.htm" />
+    <HelpKINode Title="Score Property " Url="html/a131b755-7bd2-b01a-3f06-b4e74b455233.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ScoreManager class">
+    <HelpKINode Title="ScoreManager Class" Url="html/36e1f716-225c-dfc4-f5f1-318c870b64c9.htm" />
+    <HelpKINode Title="ScoreManager Members" Url="html/e1b32264-c53e-715e-52f6-efdc3b466e8a.htm" />
+    <HelpKINode Title="about ScoreManager class" Url="html/36e1f716-225c-dfc4-f5f1-318c870b64c9.htm" />
+    <HelpKINode Title="all members" Url="html/e1b32264-c53e-715e-52f6-efdc3b466e8a.htm" />
+    <HelpKINode Title="constructor" Url="html/62a2a74c-2101-922f-85c1-5a32f01342d5.htm" />
+    <HelpKINode Title="methods" Url="html/fbfe9a97-8706-896b-d4d6-a1717d1ec5c1.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ScoreManager.AddBestPlayer method" Url="html/254f7bcb-4a5e-1717-d33c-e487c1d2cfb1.htm" />
+  <HelpKINode Title="ScoreManager.IsTopScore method" Url="html/1696d3ed-571e-3941-bbea-6a52eefe2f0c.htm" />
+  <HelpKINode Title="ScoreManager.PrintScoreList method" Url="html/821e9245-1b4d-9c81-939e-605047b42a22.htm" />
+  <HelpKINode Title="ScoreManager.ScoreManager constructor" Url="html/62a2a74c-2101-922f-85c1-5a32f01342d5.htm" />
+  <HelpKINode Title="Success field" Url="html/5252b8a9-3f78-103b-6f73-f70be26dd88f.htm" />
+  <HelpKINode Title="TryParse method">
+    <HelpKINode Title="TryParse Method " Url="html/8f2494cf-813c-f0d8-aa22-d8df148721f6.htm" />
+    <HelpKINode Title="TryParse Method " Url="html/18b78c04-eb94-f99b-6a54-a5082bb26e83.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Welcome field" Url="html/46ba6ec6-a665-6b9a-b637-2822261abf98.htm" />
+  <HelpKINode Title="WrongInput field" Url="html/3c58e8f6-50d9-e98c-9193-d2f47b665427.htm" />
+  <HelpKINode Title="X property" Url="html/2855cb67-3fa7-11b1-f408-b6152e4c1ffa.htm" />
+  <HelpKINode Title="Y property" Url="html/745e68cd-c5b3-0a82-b862-af92bde599e2.htm" />
+</HelpKI>

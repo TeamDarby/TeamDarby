@@ -7,8 +7,6 @@
 namespace BalloonPops
 {
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
     using System.Text;
 
     class GameBoard
@@ -99,7 +97,6 @@ namespace BalloonPops
                 }
             }
         }
-
 
         /// <summary>
         /// Method that start the game again and position all elements on the board

@@ -8,7 +8,7 @@ namespace BalloonPops
 {
     public class Command
     {
-        string name;
+        private string name;
 
         /// <summary>
         /// Property of the field name
