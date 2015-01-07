@@ -28,7 +28,9 @@ namespace BalloonPops
         Command command;
         bool isCoordinates;
 
-
+        /// <summary>
+        /// The constructor for the fields
+        /// </summary>
         public BalloonPops()
         {
             this.scoreManager = new ScoreManager();
