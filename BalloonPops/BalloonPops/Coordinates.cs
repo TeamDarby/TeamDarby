@@ -1,9 +1,15 @@
-﻿namespace BalloonPops
+﻿//-----------------------------------------------------------------------
+// <copyright file="Coordinates.cs" company="SoftUni">
+//  Copyright (c) 2015 SoftUni. All rights reserved.
+// </copyright>
+// <author>Team "Darby"</author>
+//-----------------------------------------------------------------------
+namespace BalloonPops
 {
     using System;
     using System.Linq;
 
-    class Coordinates
+    public class Coordinates
     {
         private int x;
         private int y;

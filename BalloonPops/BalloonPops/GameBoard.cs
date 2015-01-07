@@ -1,4 +1,10 @@
-﻿namespace BalloonPops
+﻿//-----------------------------------------------------------------------
+// <copyright file="GameBoard.cs" company="SoftUni">
+//  Copyright (c) 2015 SoftUni. All rights reserved.
+// </copyright>
+// <author>Team "Darby"</author>
+//-----------------------------------------------------------------------
+namespace BalloonPops
 {
     using System;
     using System.Collections.Generic;

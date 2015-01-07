@@ -1,7 +1,12 @@
-﻿namespace BalloonPops
+﻿//-----------------------------------------------------------------------
+// <copyright file="Command.cs" company="SoftUni">
+//  Copyright (c) 2015 SoftUni. All rights reserved.
+// </copyright>
+// <author>Team "Darby"</author>
+//-----------------------------------------------------------------------
+namespace BalloonPops
 {
-
-    class Command
+    public class Command
     {
         string name;
 
