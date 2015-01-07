@@ -56,7 +56,7 @@
 
             if (substrings.Count<string>() != 2)
             {
-                Console.WriteLine("Invalid move or command!");
+                Console.WriteLine(Message.IllegalMove);
                 return false;
             }
 
@@ -76,7 +76,7 @@
             }
             else
             {
-                Console.WriteLine("Invalid move or command!");
+                Console.WriteLine(Message.IllegalMove);
                 return false;
             }
 
@@ -96,7 +96,7 @@
             }
             else
             {
-                Console.WriteLine("Invalid move or command!");
+                Console.WriteLine(Message.IllegalMove);
                 return false;
             }
 
